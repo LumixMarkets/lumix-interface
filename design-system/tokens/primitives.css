@@ -1,0 +1,37 @@
+:root {
+  /*
+   * Legacy source palette, retained exactly as the visual source of truth.
+   * Product meaning is assigned only in themes.css.
+   */
+  --trade-blue-500: #2e5cff;
+  --trade-blue-600: #1e48e6;
+  --trade-blue-950: #0f1730;
+  --trade-blue-200: #8fa6ff;
+
+  --trade-gray-950: #0a0a0b;
+  --trade-gray-900: #141416;
+  --trade-gray-875: #1c1c1f;
+  --trade-gray-800: #2a2a2d;
+  --trade-gray-400: #a1a1a6;
+  --trade-gray-450: #85858b;
+  --trade-gray-500: #6e6e73;
+  --trade-gray-50: #f4f4f5;
+
+  --trade-green-500: #35c46a;
+  --trade-green-950: #10241a;
+  --trade-red-500: #f0524b;
+  --trade-red-950: #241214;
+
+  /* Pending appeared in the legacy component set even though it was not on the palette sheet. */
+  --trade-amber-500: #ffba00;
+
+  --trade-white-a01: rgba(255, 255, 255, 0.01);
+  --trade-white-a03: rgba(255, 255, 255, 0.03);
+  --trade-white-a04: rgba(255, 255, 255, 0.04);
+  --trade-white-a05: rgba(255, 255, 255, 0.05);
+  --trade-white-a06: rgba(255, 255, 255, 0.06);
+  --trade-black-a30: rgba(0, 0, 0, 0.30);
+  --trade-black-a40: rgba(0, 0, 0, 0.40);
+  --trade-black-a50: rgba(0, 0, 0, 0.50);
+  --trade-black-a60: rgba(0, 0, 0, 0.60);
+}

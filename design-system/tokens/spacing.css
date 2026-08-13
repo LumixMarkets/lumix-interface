@@ -1,0 +1,41 @@
+:root {
+  /* Legacy 8px rhythm with 4px half-step. */
+  --trade-space-0-5: 0.125rem;
+  --trade-space-1: 0.25rem;
+  --trade-space-2: 0.5rem;
+  --trade-space-3: 0.75rem;
+  --trade-space-4: 1rem;
+  --trade-space-5: 1.25rem;
+  --trade-space-6: 1.5rem;
+  --trade-space-8: 2rem;
+  --trade-space-10: 2.5rem;
+  --trade-space-12: 3rem;
+  --trade-space-16: 4rem;
+  --trade-space-20: 5rem;
+  --trade-space-24: 6rem;
+
+  --trade-radius-xs: 0.25rem;
+  --trade-radius-sm: 0.5rem;
+  --trade-radius-md: 0.625rem;
+  --trade-radius-control: 0.75rem;
+  --trade-radius-panel: 1rem;
+  --trade-radius-pill: 999px;
+
+  --trade-control-sm: 2rem;
+  --trade-control-md: 2.25rem;
+  --trade-control-touch: 2.75rem;
+
+  --trade-layout-max: 90rem;
+  --trade-content-max: 80rem;
+  --trade-doc-content-max: 68.75rem;
+  --trade-sidebar-width: 13.75rem;
+  --trade-order-rail-width: 20rem;
+  --trade-header-height: 3.5rem;
+
+  --trade-z-base: 0;
+  --trade-z-sticky: 20;
+  --trade-z-dropdown: 40;
+  --trade-z-drawer: 60;
+  --trade-z-modal: 80;
+  --trade-z-toast: 100;
+}

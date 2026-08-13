@@ -1,0 +1,46 @@
+:root {
+  --trade-duration-hover: 150ms;
+  --trade-duration-control: 150ms;
+  --trade-duration-popover: 200ms;
+  --trade-duration-modal: 250ms;
+  --trade-duration-page: 200ms;
+  --trade-duration-data: 400ms;
+  --trade-ease-standard: ease;
+  --trade-ease-enter: ease-out;
+  --trade-ease-exit: ease-in;
+}
+
+@keyframes trade-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes trade-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes trade-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes trade-slide-up {
+  from { opacity: 0; transform: translateY(0.75rem); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes trade-shimmer {
+  from { background-position: 200% 0; }
+  to { background-position: -200% 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+  }
+}
