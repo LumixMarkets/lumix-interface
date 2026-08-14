@@ -1,0 +1,192 @@
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  /* Legacy surface ladder */
+  --trade-bg-canvas: var(--trade-gray-950);
+  --trade-bg-surface: var(--trade-gray-900);
+  --trade-bg-raised: var(--trade-gray-875);
+  --trade-bg-overlay: var(--trade-gray-875);
+  --trade-bg-inverse: var(--trade-gray-50);
+
+  --trade-border-subtle: var(--trade-gray-800);
+  --trade-border-default: var(--trade-gray-800);
+  --trade-border-strong: var(--trade-gray-500);
+
+  --trade-text-primary: var(--trade-gray-50);
+  --trade-text-secondary: var(--trade-gray-400);
+  --trade-text-muted: var(--trade-gray-450);
+  --trade-text-disabled: var(--trade-gray-500);
+  --trade-text-inverse: var(--trade-gray-950);
+
+  /* Poly Blue is punctuation and the primary transactional control. */
+  --trade-accent: var(--trade-blue-500);
+  --trade-accent-hover: var(--trade-blue-600);
+  --trade-accent-active: var(--trade-blue-600);
+  --trade-accent-text: var(--trade-blue-200);
+  --trade-accent-tint: var(--trade-blue-950);
+  --trade-accent-selected: rgba(46, 92, 255, 0.06);
+  --trade-focus-ring: rgba(46, 92, 255, 0.15);
+
+  /* Directional and financial semantics */
+  --trade-positive: var(--trade-green-500);
+  --trade-positive-strong: var(--trade-green-500);
+  --trade-positive-tint: var(--trade-green-950);
+  --trade-positive-border: rgba(53, 196, 106, 0.30);
+
+  --trade-negative: var(--trade-red-500);
+  --trade-negative-strong: var(--trade-red-500);
+  --trade-negative-tint: var(--trade-red-950);
+  --trade-negative-border: rgba(240, 82, 75, 0.30);
+
+  --trade-warning: var(--trade-amber-500);
+  --trade-warning-strong: var(--trade-amber-500);
+  --trade-warning-tint: rgba(255, 186, 0, 0.12);
+  --trade-warning-border: rgba(255, 186, 0, 0.30);
+
+  --trade-info: var(--trade-accent-text);
+  --trade-info-tint: rgba(46, 92, 255, 0.12);
+  --trade-info-border: rgba(46, 92, 255, 0.24);
+
+  --trade-long: var(--trade-positive);
+  --trade-long-tint: var(--trade-positive-tint);
+  --trade-long-border: var(--trade-positive-border);
+  --trade-short: var(--trade-negative);
+  --trade-short-tint: var(--trade-negative-tint);
+  --trade-short-border: var(--trade-negative-border);
+  --trade-call: var(--trade-positive);
+  --trade-call-tint: var(--trade-positive-tint);
+  --trade-call-border: var(--trade-positive-border);
+  --trade-put: var(--trade-negative);
+  --trade-put-tint: var(--trade-negative-tint);
+  --trade-put-border: var(--trade-negative-border);
+  --trade-profit: var(--trade-positive);
+  --trade-loss: var(--trade-negative);
+
+  /*
+   * Data roles stay inside the legacy palette. Labels and values—not hue alone—
+   * carry meaning when several roles appear together.
+   */
+  --trade-data-premium: var(--trade-accent-text);
+  --trade-data-collateral: var(--trade-accent);
+  --trade-data-reserved: var(--trade-accent);
+  --trade-data-safety: var(--trade-warning);
+  --trade-data-free: var(--trade-text-secondary);
+  --trade-data-blend: var(--trade-accent-text);
+  --trade-data-pending: var(--trade-text-muted);
+  --trade-data-oracle: var(--trade-warning);
+
+  --trade-hover-wash: var(--trade-white-a04);
+  --trade-hover-wash-strong: var(--trade-white-a06);
+  --trade-row-zebra: var(--trade-white-a01);
+  --trade-row-hover: var(--trade-white-a03);
+  --trade-scrim: var(--trade-black-a60);
+  --trade-overlay-shadow: 0 24px 64px var(--trade-black-a50);
+  --trade-control-shadow: 0 1px 3px var(--trade-black-a30);
+  --trade-tooltip-shadow: 0 4px 16px var(--trade-black-a40);
+  --trade-secondary-hover: #222226;
+  --trade-danger-hover: #2e1515;
+  --trade-success-hover: #12301f;
+
+  --trade-action-primary-bg: var(--trade-accent);
+  --trade-action-primary-fg: #ffffff;
+  --trade-action-primary-hover: var(--trade-accent-hover);
+  --trade-action-positive-bg: var(--trade-positive);
+  --trade-action-negative-bg: var(--trade-negative);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* Surfaces */
+  --trade-bg-canvas: #f6f6f8;
+  --trade-bg-surface: #ffffff;
+  --trade-bg-raised: #eeeef2;
+  --trade-bg-overlay: #fafafd;
+  --trade-bg-inverse: #0a0a0b;
+
+  /* Borders */
+  --trade-border-subtle: #e5e5ea;
+  --trade-border-default: #d8d8e0;
+  --trade-border-strong: #9696a0;
+
+  /* Text */
+  --trade-text-primary: #17171a;
+  --trade-text-secondary: #4f4f59;
+  --trade-text-muted: #696974;
+  --trade-text-disabled: #898993;
+  --trade-text-inverse: #f4f4f5;
+
+  /* Poly Blue remains the product action and selection color. */
+  --trade-accent: #244de0;
+  --trade-accent-hover: #1d3fbd;
+  --trade-accent-active: #173497;
+  --trade-accent-text: #244de0;
+  --trade-accent-tint: rgba(46, 92, 255, 0.09);
+  --trade-accent-selected: rgba(46, 92, 255, 0.07);
+  --trade-focus-ring: rgba(46, 92, 255, 0.20);
+
+  /* Directional and financial semantics */
+  --trade-positive: #167441;
+  --trade-positive-strong: #167441;
+  --trade-positive-tint: rgba(22, 116, 65, 0.09);
+  --trade-positive-border: rgba(22, 116, 65, 0.32);
+
+  --trade-negative: #a93430;
+  --trade-negative-strong: #a93430;
+  --trade-negative-tint: rgba(169, 52, 48, 0.09);
+  --trade-negative-border: rgba(169, 52, 48, 0.30);
+
+  --trade-warning: #9a6500;
+  --trade-warning-strong: #9a6500;
+  --trade-warning-tint: rgba(154, 101, 0, 0.10);
+  --trade-warning-border: rgba(154, 101, 0, 0.30);
+
+  --trade-info: #244de0;
+  --trade-info-tint: rgba(46, 92, 255, 0.08);
+  --trade-info-border: rgba(36, 77, 224, 0.26);
+
+  --trade-long: var(--trade-positive);
+  --trade-long-tint: var(--trade-positive-tint);
+  --trade-long-border: var(--trade-positive-border);
+  --trade-short: var(--trade-negative);
+  --trade-short-tint: var(--trade-negative-tint);
+  --trade-short-border: var(--trade-negative-border);
+  --trade-call: var(--trade-positive);
+  --trade-call-tint: var(--trade-positive-tint);
+  --trade-call-border: var(--trade-positive-border);
+  --trade-put: var(--trade-negative);
+  --trade-put-tint: var(--trade-negative-tint);
+  --trade-put-border: var(--trade-negative-border);
+  --trade-profit: var(--trade-positive);
+  --trade-loss: var(--trade-negative);
+
+  /* Categorical data */
+  --trade-data-premium: #6f52c8;
+  --trade-data-collateral: #167d8e;
+  --trade-data-reserved: #244de0;
+  --trade-data-safety: #9a6500;
+  --trade-data-free: #167d8e;
+  --trade-data-blend: #1f7468;
+  --trade-data-pending: #777781;
+  --trade-data-oracle: #9d4f1f;
+
+  /* Interaction */
+  --trade-hover-wash: rgba(0, 0, 0, 0.04);
+  --trade-hover-wash-strong: rgba(0, 0, 0, 0.06);
+  --trade-row-zebra: rgba(0, 0, 0, 0.015);
+  --trade-row-hover: rgba(0, 0, 0, 0.04);
+  --trade-scrim: rgba(0, 0, 0, 0.52);
+  --trade-overlay-shadow: 0 24px 64px rgba(23, 23, 26, 0.18);
+  --trade-control-shadow: 0 1px 3px rgba(23, 23, 26, 0.10);
+  --trade-tooltip-shadow: 0 4px 16px rgba(23, 23, 26, 0.14);
+  --trade-secondary-hover: var(--trade-hover-wash-strong);
+  --trade-danger-hover: rgba(169, 52, 48, 0.15);
+  --trade-success-hover: rgba(22, 116, 65, 0.15);
+
+  --trade-action-primary-bg: var(--trade-accent);
+  --trade-action-primary-fg: #ffffff;
+  --trade-action-primary-hover: var(--trade-accent-hover);
+  --trade-action-positive-bg: var(--trade-positive);
+  --trade-action-negative-bg: var(--trade-negative);
+}
