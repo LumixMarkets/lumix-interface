@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dark, data-first design-system specimens for a Stellar-native trading and derivatives platform.">
+  <title>Stellar Trading Design System — v0.2.0</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="trade-doc-shell">
+    <aside class="trade-doc-sidebar" aria-label="Design-system sections">
+      <div class="trade-doc-brand">
+        <div class="trade-doc-brand-mark" aria-hidden="true">ST</div>
+        <div>
+          <div class="trade-doc-brand-name">Stellar Trading</div>
+          <div class="trade-doc-brand-meta">Design system</div>
+        </div>
+      </div>
+
+      <nav class="trade-doc-nav">
+        <button class="is-active" type="button" data-section-target="foundations" aria-current="page">Foundations</button>
+        <button type="button" data-section-target="buttons">Buttons & badges</button>
+        <button type="button" data-section-target="inputs">Inputs</button>
+        <button type="button" data-section-target="cards">Cards</button>
+        <button type="button" data-section-target="trading">Trading components</button>
+        <button type="button" data-section-target="tables">Tables</button>
+        <button type="button" data-section-target="charts">Charts</button>
+        <button type="button" data-section-target="navigation">Navigation</button>
+        <button type="button" data-section-target="states">States & transactions</button>
+      </nav>
+
+      <div class="trade-doc-sidebar-footer">
+        <div>Trading DS v0.2.0</div>
+        <div>Stellar · Soroban</div>
+      </div>
+    </aside>
+
+    <div class="trade-mobile-doc-bar">
+      <div class="trade-doc-brand-name">Stellar Trading / DS</div>
+      <label>
+        <span class="trade-sr-only">Choose design-system section</span>
+        <select class="trade-mobile-doc-select" id="mobile-section-select">
+          <option value="foundations">Foundations</option>
+          <option value="buttons">Buttons & badges</option>
+          <option value="inputs">Inputs</option>
+          <option value="cards">Cards</option>
+          <option value="trading">Trading components</option>
+          <option value="tables">Tables</option>
+          <option value="charts">Charts</option>
+          <option value="navigation">Navigation</option>
+          <option value="states">States & transactions</option>
+        </select>
+      </label>
+    </div>
+
+    <main class="trade-doc-main">
+      <div class="trade-doc-content">
+        <section class="trade-doc-section is-active" id="foundations" data-section-panel aria-labelledby="foundations-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Foundations · legacy visual language</div>
+            <h1 class="trade-doc-title" id="foundations-title">Design tokens</h1>
+            <p class="trade-doc-lede">The original dark palette, Inter scale, 8px rhythm, and rounded surface system—reassigned to spot, options, RFQs, perpetuals, vaults, portfolio, and activity.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Brand · Poly Blue</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#2E5CFF"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Accent</div><div class="trade-swatch-code">#2E5CFF</div><div class="trade-swatch-code">--trade-accent</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#1E48E6"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Accent hover</div><div class="trade-swatch-code">#1E48E6</div><div class="trade-swatch-code">--trade-accent-hover</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#0F1730"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Accent tint</div><div class="trade-swatch-code">#0F1730</div><div class="trade-swatch-code">--trade-accent-tint</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#8FA6FF"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Accent text</div><div class="trade-swatch-code">#8FA6FF</div><div class="trade-swatch-code">--trade-accent-text</div></div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Neutrals · Pure Gray</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#0A0A0B"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Page background</div><div class="trade-swatch-code">#0A0A0B</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#141416"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Surface</div><div class="trade-swatch-code">#141416</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#1C1C1F"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Surface raised</div><div class="trade-swatch-code">#1C1C1F</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#2A2A2D"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Border</div><div class="trade-swatch-code">#2A2A2D</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#F4F4F5"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Text primary</div><div class="trade-swatch-code">#F4F4F5</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#A1A1A6"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Text secondary</div><div class="trade-swatch-code">#A1A1A6</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#85858B"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Text muted · AA alias</div><div class="trade-swatch-code">#85858B</div><div class="trade-swatch-code">Legacy reference #6E6E73</div></div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Financial direction & risk</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#35C46A"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Long · call · profit</div><div class="trade-swatch-code">#35C46A</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#10241A"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Positive tint</div><div class="trade-swatch-code">#10241A</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#F0524B"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Short · put · loss</div><div class="trade-swatch-code">#F0524B</div></div></div>
+              <div class="trade-swatch trade-doc-span-3"><div class="trade-swatch-color" style="--swatch:#241214"></div><div class="trade-swatch-meta"><div class="trade-swatch-name">Negative tint</div><div class="trade-swatch-code">#241214</div></div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Type scale · Inter</h2>
+            <div class="trade-doc-card">
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">Display</div><div class="trade-type-spec">64 / 700</div></div><div class="trade-type-sample" style="font-size:4rem;font-weight:700;letter-spacing:-0.02em">Capital, clearly routed.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">H1</div><div class="trade-type-spec">48 / 700</div></div><div class="trade-type-sample" style="font-size:3rem;font-weight:700;letter-spacing:-0.02em">Trade on Stellar.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">H2</div><div class="trade-type-spec">36 / 700</div></div><div class="trade-type-sample" style="font-size:2.25rem;font-weight:700;letter-spacing:-0.02em">Options without fragmented liquidity.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">H3</div><div class="trade-type-spec">28 / 600</div></div><div class="trade-type-sample" style="font-size:1.75rem;font-weight:600;letter-spacing:-0.01em">Vault-backed perpetuals.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">H4</div><div class="trade-type-spec">22 / 600</div></div><div class="trade-type-sample" style="font-size:1.375rem;font-weight:600;letter-spacing:-0.01em">Liquidity and risk at a glance.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">Body large</div><div class="trade-type-spec">18 / 400</div></div><div class="trade-type-sample" style="font-size:1.125rem">Reserved funds stay available for trading obligations.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">Body</div><div class="trade-type-spec">16 / 400</div></div><div class="trade-type-sample" style="font-size:1rem">Compare routes, review costs, then sign with your wallet.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">Small</div><div class="trade-type-spec">14 / 400</div></div><div class="trade-type-sample" style="font-size:0.875rem">Available capacity reflects current vault liquidity.</div></div>
+              <div class="trade-type-row"><div class="trade-type-meta"><div class="trade-type-name">Caption</div><div class="trade-type-spec">12 / 500</div></div><div class="trade-type-sample" style="font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">ORACLE UPDATED 4 SECONDS AGO</div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Spacing & radius</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-7">
+                <div class="trade-spec-row" style="align-items:flex-end">
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:4px;height:4px;background:var(--trade-accent);border-radius:2px"></div><code class="trade-swatch-code">4</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:8px;height:8px;background:var(--trade-accent);border-radius:2px"></div><code class="trade-swatch-code">8</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:12px;height:12px;background:var(--trade-accent);border-radius:3px"></div><code class="trade-swatch-code">12</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:16px;height:16px;background:var(--trade-accent);border-radius:3px"></div><code class="trade-swatch-code">16</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:24px;height:24px;background:var(--trade-accent);border-radius:4px"></div><code class="trade-swatch-code">24</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:32px;height:32px;background:var(--trade-accent);border-radius:4px"></div><code class="trade-swatch-code">32</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:48px;height:48px;background:var(--trade-accent);border-radius:4px"></div><code class="trade-swatch-code">48</code></div>
+                  <div style="display:grid;gap:8px;justify-items:center"><div style="width:64px;height:64px;background:var(--trade-accent);border-radius:4px"></div><code class="trade-swatch-code">64</code></div>
+                </div>
+              </div>
+              <div class="trade-doc-card trade-doc-span-5">
+                <div class="trade-spec-row" style="justify-content:space-around">
+                  <div style="display:grid;gap:10px;justify-items:center"><div style="width:64px;height:64px;border:2px solid var(--trade-accent);border-radius:16px;background:var(--trade-accent-tint)"></div><span class="trade-card-copy">Card · 16px</span></div>
+                  <div style="display:grid;gap:10px;justify-items:center"><div style="width:64px;height:64px;border:2px solid var(--trade-accent);border-radius:12px;background:var(--trade-accent-tint)"></div><span class="trade-card-copy">Control · 12px</span></div>
+                  <div style="display:grid;gap:10px;justify-items:center"><div style="width:64px;height:32px;border:2px solid var(--trade-accent);border-radius:999px;background:var(--trade-accent-tint)"></div><span class="trade-card-copy">Tag · pill</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="buttons" data-section-panel aria-labelledby="buttons-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="buttons-title">Buttons & badges</h1>
+            <p class="trade-doc-lede">The original blue primary action is restored. Green and red appear only when the action or status is financially directional.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Button variants</h2>
+            <div class="trade-doc-card"><div class="trade-spec-row">
+              <button class="trade-button trade-button--primary" type="button">Primary</button>
+              <button class="trade-button trade-button--secondary" type="button">Secondary</button>
+              <button class="trade-button trade-button--ghost" type="button">Ghost</button>
+              <button class="trade-button trade-button--danger" type="button">Danger</button>
+              <button class="trade-button trade-button--success" type="button">Success</button>
+              <button class="trade-button trade-button--positive" type="button">Open long</button>
+              <button class="trade-button trade-button--negative" type="button">Open short</button>
+            </div></div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Sizes & states</h2>
+            <div class="trade-doc-card"><div class="trade-spec-row">
+              <button class="trade-button trade-button--primary trade-button--sm" type="button">Small</button>
+              <button class="trade-button trade-button--primary" type="button">Medium</button>
+              <button class="trade-button trade-button--primary trade-button--lg" type="button">Large</button>
+              <button class="trade-button trade-button--primary" type="button" disabled>Disabled</button>
+              <button class="trade-button trade-button--secondary" type="button" aria-busy="true">Loading…</button>
+            </div></div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Lifecycle & financial badges</h2>
+            <div class="trade-doc-card"><div class="trade-spec-row">
+              <span class="trade-badge">Neutral</span>
+              <span class="trade-badge trade-badge--live">Live</span>
+              <span class="trade-badge trade-badge--long">Long</span>
+              <span class="trade-badge trade-badge--short">Short</span>
+              <span class="trade-badge trade-badge--call">Call</span>
+              <span class="trade-badge trade-badge--put">Put</span>
+              <span class="trade-badge trade-badge--success">Settled</span>
+              <span class="trade-badge trade-badge--pending">Awaiting signature</span>
+              <span class="trade-badge trade-badge--warning">Expiring soon</span>
+              <span class="trade-badge trade-badge--limited">Capacity limited</span>
+              <span class="trade-badge trade-badge--stale">Oracle stale</span>
+              <span class="trade-badge trade-badge--error">Failed</span>
+            </div></div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">In context</h2>
+            <div class="trade-doc-card trade-spec-stack">
+              <div class="trade-key-value"><div class="trade-spec-row"><span class="trade-badge trade-badge--live">Live</span><span class="trade-card-heading">XLM / USDC perpetual</span></div><div class="trade-number trade-secondary">Capacity $824K</div></div>
+              <hr class="trade-divider">
+              <div class="trade-key-value"><div class="trade-spec-row"><span class="trade-badge trade-badge--pending">Quote received</span><span class="trade-card-heading">XLM call RFQ · sample terms</span></div><div class="trade-number trade-secondary">Expires in 08:42</div></div>
+              <hr class="trade-divider">
+              <div class="trade-key-value"><div class="trade-spec-row"><span class="trade-badge trade-badge--stale">Data stale</span><span class="trade-card-heading">Execution temporarily blocked</span></div><div class="trade-number trade-warning">42s old</div></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="inputs" data-section-panel aria-labelledby="inputs-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="inputs-title">Inputs</h1>
+            <p class="trade-doc-lede">Raised dark fields, compact labels, precise financial units, and visible wallet or market constraints.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Text, search & select</h2>
+            <div class="trade-doc-card">
+              <div class="trade-doc-grid">
+                <label class="trade-field trade-doc-span-6"><span class="trade-label">Search assets, markets, positions</span><span class="trade-input-wrap"><input class="trade-input" placeholder="XLM, USDC, open RFQs…"></span></label>
+                <label class="trade-field trade-doc-span-6"><span class="trade-label">Market</span><span class="trade-input-wrap"><select class="trade-select"><option>XLM / USDC perpetual</option><option>XLM spot</option><option>XLM standardized options</option></select></span></label>
+                <label class="trade-field trade-doc-span-6"><span class="trade-field-header"><span class="trade-label">Collateral</span><span class="trade-field-meta">Available 8,420.00 USDC</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="1,250.00" inputmode="decimal"><span class="trade-asset-chip"><span class="trade-asset-mark">U</span>USDC</span></span><span class="trade-field-help">≈ $1,250.00 · Isolated margin</span></label>
+                <label class="trade-field trade-doc-span-6"><span class="trade-field-header"><span class="trade-label">Receive</span><span class="trade-field-meta">Best route · example quote</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="6,664.38" readonly><span class="trade-asset-chip"><span class="trade-asset-mark">X</span>XLM</span></span><span class="trade-field-help">Minimum received shown before signature</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Selection controls</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-6 trade-spec-stack">
+                <div class="trade-card-heading">Preferences</div>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="checkbox" checked style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Notify me before an option expires</span></label>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="checkbox" style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Show advanced route details by default</span></label>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="checkbox" style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Acknowledge early-exercise time-value warning</span></label>
+              </div>
+              <div class="trade-doc-card trade-doc-span-6 trade-spec-stack">
+                <div class="trade-card-heading">Order type</div>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="radio" name="order-type" checked style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Market</span></label>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="radio" name="order-type" style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Limit</span></label>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="radio" name="order-type" style="accent-color:var(--trade-accent);width:18px;height:18px"><span class="trade-secondary trade-small">Stop</span></label>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Leverage control · configurable example</h2>
+            <div class="trade-doc-card">
+              <div class="trade-key-value" style="margin-bottom:8px"><span class="trade-card-copy">Selected leverage</span><strong class="trade-number" id="leverage-value">3×</strong></div>
+              <input id="leverage-slider" type="range" min="1" max="10" value="3" aria-label="Example leverage" aria-valuetext="3 times" style="width:100%;accent-color:var(--trade-accent)">
+              <div class="trade-key-value" style="margin-top:8px"><span class="trade-card-copy">1×</span><span class="trade-card-copy">Example range only · protocol maximum unresolved</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="cards" data-section-panel aria-labelledby="cards-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="cards-title">Cards</h1>
+            <p class="trade-doc-lede">Flat bordered cards retain the older system’s visual hierarchy while the information model becomes instrument-, contract-, position-, and vault-specific.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Statistics</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-3"><div class="trade-card-kicker">Portfolio value</div><div class="trade-stat-value">$28,441.50</div><div class="trade-stat-trend trade-positive">+4.32% today</div></div>
+              <div class="trade-panel trade-doc-span-3"><div class="trade-card-kicker">Open positions</div><div class="trade-stat-value">12</div><div class="trade-stat-trend">Options 7 · Perps 5</div></div>
+              <div class="trade-panel trade-doc-span-3"><div class="trade-card-kicker">Option collateral</div><div class="trade-stat-value">$6,240</div><div class="trade-stat-trend">Locked in seller escrow</div></div>
+              <div class="trade-panel trade-doc-span-3"><div class="trade-card-kicker">Vault shares</div><div class="trade-stat-value">4,284.2</div><div class="trade-stat-trend">Historical return shown separately</div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Instrument & option contract</h2>
+            <div class="trade-doc-grid">
+              <article class="trade-panel trade-doc-span-6">
+                <div class="trade-instrument-header">
+                  <div class="trade-spec-row"><div class="trade-pair-mark">XL</div><div><h3 class="trade-card-heading">XLM / USDC perpetual</h3><p class="trade-card-copy">Example market · oracle updated 4s ago</p></div></div>
+                  <span class="trade-badge trade-badge--live">Trading</span>
+                </div>
+                <div class="trade-spec-row" style="align-items:baseline;margin-top:20px"><span class="trade-price">$0.18742</span><span class="trade-pnl" data-direction="profit">+2.14%</span></div>
+                <div class="trade-metric-grid" style="margin-top:16px">
+                  <div class="trade-metric"><div class="trade-metric-label">Open interest</div><div class="trade-metric-value">$1.84M</div><div class="trade-metric-context">Long 56% · Short 44%</div></div>
+                  <div class="trade-metric"><div class="trade-metric-label">Available capacity</div><div class="trade-metric-value">$824K</div><div class="trade-metric-context">Current vault state</div></div>
+                </div>
+                <div class="trade-direction-grid" data-direction-group style="margin-top:14px"><button class="trade-direction trade-direction--positive is-selected" aria-pressed="true" type="button"><span>Long</span><span class="trade-direction-detail">Buy</span></button><button class="trade-direction trade-direction--negative" aria-pressed="false" type="button"><span>Short</span><span class="trade-direction-detail">Sell</span></button></div>
+              </article>
+
+              <article class="trade-panel trade-doc-span-6">
+                <div class="trade-instrument-header"><div><div class="trade-card-kicker">Standardized option · sample contract</div><h3 class="trade-card-heading" style="margin-top:6px">XLM call · $0.20 strike</h3></div><span class="trade-badge trade-badge--call">Call</span></div>
+                <div class="trade-metric-grid" style="margin-top:20px">
+                  <div class="trade-metric"><div class="trade-metric-label">Premium</div><div class="trade-metric-value">$0.0124</div><div class="trade-metric-context">Per XLM · example</div></div>
+                  <div class="trade-metric"><div class="trade-metric-label">Break-even</div><div class="trade-metric-value">$0.2124</div><div class="trade-metric-context">At expiration</div></div>
+                  <div class="trade-metric"><div class="trade-metric-label">Expires</div><div class="trade-metric-value">27 Nov</div><div class="trade-metric-context">Illustrative date</div></div>
+                </div>
+                <div class="trade-key-value" style="margin-top:16px"><span class="trade-card-copy">Exercise style</span><strong class="trade-small">American · cashless</strong></div>
+                <div class="trade-key-value" style="margin-top:8px"><span class="trade-card-copy">Settlement asset</span><strong class="trade-small trade-warning">Configured per contract</strong></div>
+                <div class="trade-card-footer" style="margin-top:20px"><button class="trade-button trade-button--primary trade-button--sm" type="button">Review purchase</button><button class="trade-button trade-button--secondary trade-button--sm" type="button">Write option</button></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Wallet & vault</h2>
+            <div class="trade-doc-grid">
+              <article class="trade-panel trade-wallet-card trade-doc-span-6">
+                <div class="trade-card-kicker" style="color:var(--trade-accent-text)">Wallet balance</div>
+                <div class="trade-stat-value">24,441.00 XLM</div>
+                <div class="trade-stat-trend" style="color:var(--trade-accent-text)">Available 18,201.00 · reserved 6,240.00</div>
+                <div class="trade-spec-row" style="margin-top:20px"><button class="trade-button trade-button--primary trade-button--sm" type="button">Add trustline</button><button class="trade-button trade-button--ghost trade-button--sm" type="button">Wallet settings</button></div>
+              </article>
+              <article class="trade-panel trade-doc-span-6">
+                <div class="trade-instrument-header"><div><div class="trade-card-kicker">Pair-specific liquidity vault</div><h3 class="trade-card-heading" style="margin-top:6px">XLM / USDC LP vault</h3></div><span class="trade-badge trade-badge--live">Available</span></div>
+                <div class="trade-key-value" style="margin-top:20px"><span class="trade-card-copy">TVL</span><strong class="trade-number">$4.82M</strong></div>
+                <div class="trade-key-value" style="margin-top:8px"><span class="trade-card-copy">Share price</span><strong class="trade-number">$1.0842</strong></div>
+                <div class="trade-meter-wrap" style="margin-top:18px"><div class="trade-meter-header"><span>Vault utilization</span><span class="trade-meter-value">64%</span></div><div class="trade-meter"><span style="--trade-meter-value:64%"></span></div></div>
+                <p class="trade-card-copy" style="margin-top:14px">Returns are historical and variable. Trader PnL, fees, and Blend yield remain decomposed.</p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="trading" data-section-panel aria-labelledby="trading-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Product components</div>
+            <h1 class="trade-doc-title" id="trading-title">Trading components</h1>
+            <p class="trade-doc-lede">Product-specific tickets share the same shell, but each exposes its own route, collateral, capacity, settlement, or yield obligations.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Spot route & execution quote</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-5 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Swap assets</h3><p class="trade-panel-subtitle">Example values · route refreshes before signature</p></div><span class="trade-badge trade-badge--live">Quoted</span></div>
+                <label class="trade-field"><span class="trade-field-header"><span class="trade-label">Pay</span><span class="trade-field-meta">Balance 8,420 USDC</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="1,000.00"><span class="trade-asset-chip"><span class="trade-asset-mark">U</span>USDC</span></span></label>
+                <label class="trade-field"><span class="trade-field-header"><span class="trade-label">Receive</span><span class="trade-field-meta">Best execution</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="5,321.08" readonly><span class="trade-asset-chip"><span class="trade-asset-mark">X</span>XLM</span></span></label>
+                <button class="trade-button trade-button--primary trade-button--block" type="button">Review swap</button>
+              </div>
+              <div class="trade-panel trade-doc-span-7 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Best route</h3><p class="trade-panel-subtitle">Illustrative composition across external liquidity</p></div><span class="trade-badge trade-badge--info">Best execution</span></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Soroswap</span><strong class="trade-number">65%</strong></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Aquarius</span><strong class="trade-number">35%</strong></div>
+                <hr class="trade-divider">
+                <dl class="trade-breakdown">
+                  <div class="trade-breakdown-row"><dt>Price impact</dt><dd>0.12%</dd></div>
+                  <div class="trade-breakdown-row"><dt>Slippage limit</dt><dd>0.50% · example</dd></div>
+                  <div class="trade-breakdown-row"><dt>Venue + routing fees</dt><dd>$2.40 · example</dd></div>
+                  <div class="trade-breakdown-row trade-breakdown-row--total"><dt>Minimum received</dt><dd>5,294.47 XLM</dd></div>
+                </dl>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Option purchase & exercise preview</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-5 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Buy XLM call</h3><p class="trade-panel-subtitle">Sample contract · expiration and strike configurable</p></div><span class="trade-badge trade-badge--call">Call</span></div>
+                <div class="trade-direction-grid" data-direction-group><button class="trade-direction trade-direction--positive is-selected" type="button" aria-pressed="true"><span>Call</span><span class="trade-direction-detail">Upside</span></button><button class="trade-direction trade-direction--negative" type="button" aria-pressed="false"><span>Put</span><span class="trade-direction-detail">Downside</span></button></div>
+                <label class="trade-field"><span class="trade-field-header"><span class="trade-label">Contracts</span><span class="trade-field-meta">100 XLM each · example</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="10"><span class="trade-input-affix">contracts</span></span></label>
+                <dl class="trade-breakdown"><div class="trade-breakdown-row"><dt>Premium</dt><dd>$12.40</dd></div><div class="trade-breakdown-row"><dt>Break-even</dt><dd>$0.2124</dd></div><div class="trade-breakdown-row trade-breakdown-row--total"><dt>Maximum buyer loss</dt><dd>$12.40</dd></div></dl>
+                <button class="trade-button trade-button--primary trade-button--block" type="button">Review option purchase</button>
+              </div>
+              <div class="trade-panel trade-panel--risk trade-doc-span-7 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Cashless exercise preview</h3><p class="trade-panel-subtitle">Current estimates · settlement configuration remains explicit</p></div><span class="trade-badge trade-badge--warning">Early exercise</span></div>
+                <div class="trade-metric-grid"><div class="trade-metric"><div class="trade-metric-label">Intrinsic value</div><div class="trade-metric-value">$42.00</div></div><div class="trade-metric"><div class="trade-metric-label">Estimated time value</div><div class="trade-metric-value trade-warning">$8.60</div></div><div class="trade-metric"><div class="trade-metric-label">Estimated payout</div><div class="trade-metric-value">$42.00</div></div></div>
+                <div class="trade-alert trade-alert--warning"><span class="trade-alert-mark">Risk</span><div><strong>Exercising now may sacrifice $8.60 of estimated time value.</strong><br>The payout realizes intrinsic value only. Review the configured settlement asset before signing.</div></div>
+                <label class="trade-spec-row" style="cursor:pointer"><input type="checkbox" style="accent-color:var(--trade-warning);width:18px;height:18px"><span class="trade-secondary trade-small">I understand the estimated time value may be lost.</span></label>
+                <button class="trade-button trade-button--secondary trade-button--block" type="button">Continue to exercise review</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Perpetual position & market capacity</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-5 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Open position</h3><p class="trade-panel-subtitle">Isolated margin · example values</p></div><span class="trade-badge">Configured market</span></div>
+                <div class="trade-direction-grid" data-direction-group><button class="trade-direction trade-direction--positive is-selected" type="button" aria-pressed="true"><span>Long</span><span class="trade-direction-detail">Buy</span></button><button class="trade-direction trade-direction--negative" type="button" aria-pressed="false"><span>Short</span><span class="trade-direction-detail">Sell</span></button></div>
+                <label class="trade-field"><span class="trade-field-header"><span class="trade-label">Collateral</span><span class="trade-field-meta">Available $8,420</span></span><span class="trade-input-wrap"><input class="trade-input trade-input--amount" value="500.00"><span class="trade-asset-chip"><span class="trade-asset-mark">U</span>USDC</span></span></label>
+                <dl class="trade-breakdown"><div class="trade-breakdown-row"><dt>Position size</dt><dd>$1,500 · 3× example</dd></div><div class="trade-breakdown-row"><dt>Entry price</dt><dd>$0.18742</dd></div><div class="trade-breakdown-row"><dt>Liquidation price</dt><dd>$0.13918</dd></div><div class="trade-breakdown-row"><dt>Opening fee</dt><dd>Configured at quote</dd></div><div class="trade-breakdown-row trade-breakdown-row--total"><dt>Wallet impact</dt><dd>Lock 500 USDC</dd></div></dl>
+                <button class="trade-button trade-button--positive trade-button--block" type="button">Review long</button>
+              </div>
+              <div class="trade-panel trade-doc-span-7 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">XLM / USDC capacity</h3><p class="trade-panel-subtitle">Capacity is a first-class market state</p></div><span class="trade-badge trade-badge--live">Available</span></div>
+                <div class="trade-meter-wrap"><div class="trade-meter-header"><span>Long utilization</span><span class="trade-meter-value">64% · $824K available</span></div><div class="trade-meter trade-meter--positive"><span style="--trade-meter-value:64%"></span></div></div>
+                <div class="trade-meter-wrap"><div class="trade-meter-header"><span>Short utilization</span><span class="trade-meter-value">82% · $312K available</span></div><div class="trade-meter trade-meter--negative"><span style="--trade-meter-value:82%"></span></div></div>
+                <div class="trade-metric-grid"><div class="trade-metric"><div class="trade-metric-label">Borrowing rate</div><div class="trade-metric-value">4.8% APR</div><div class="trade-metric-context">Current estimate</div></div><div class="trade-metric"><div class="trade-metric-label">Funding rate</div><div class="trade-metric-value trade-positive">+0.004%</div><div class="trade-metric-context">Longs pay shorts</div></div><div class="trade-metric"><div class="trade-metric-label">Max position</div><div class="trade-metric-value">$312K</div><div class="trade-metric-context">Limited by short side</div></div></div>
+                <div class="trade-alert"><span class="trade-alert-mark">Info</span><div><strong>Capacity can change before execution.</strong><br>The final preview rechecks vault liquidity, oracle freshness, and open-interest limits.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Vault capital & return decomposition</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-7 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Capital allocation</h3><p class="trade-panel-subtitle">Illustrative ratios · strategy limits unresolved</p></div><span class="trade-badge trade-badge--info">Dynamic</span></div>
+                <div class="trade-capital-stack" aria-label="Example vault capital allocation"><span style="--trade-capital-size:42%;--trade-capital-color:var(--trade-data-reserved)" title="Reserved"></span><span style="--trade-capital-size:18%;--trade-capital-color:var(--trade-data-safety)" title="Safety"></span><span style="--trade-capital-size:16%;--trade-capital-color:var(--trade-data-free)" title="Free"></span><span style="--trade-capital-size:20%;--trade-capital-color:var(--trade-data-blend)" title="Blend-deployed"></span><span style="--trade-capital-size:4%;--trade-capital-color:var(--trade-data-pending)" title="Pending withdrawals"></span></div>
+                <div class="trade-capital-legend">
+                  <div class="trade-legend-item"><span class="trade-legend-swatch" style="--trade-legend-color:var(--trade-data-reserved)"></span>Reserved<strong>42%</strong></div>
+                  <div class="trade-legend-item"><span class="trade-legend-swatch" style="--trade-legend-color:var(--trade-data-safety)"></span>Safety<strong>18%</strong></div>
+                  <div class="trade-legend-item"><span class="trade-legend-swatch" style="--trade-legend-color:var(--trade-data-free)"></span>Free<strong>16%</strong></div>
+                  <div class="trade-legend-item"><span class="trade-legend-swatch" style="--trade-legend-color:var(--trade-data-blend)"></span>Blend-deployed<strong>20%</strong></div>
+                  <div class="trade-legend-item"><span class="trade-legend-swatch" style="--trade-legend-color:var(--trade-data-pending)"></span>Pending<strong>4%</strong></div>
+                </div>
+                <p class="trade-card-copy">Blend-deployed capital is not labeled liquid. Every segment includes an exact value in production, not only a percentage.</p>
+              </div>
+              <div class="trade-panel trade-doc-span-5 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Return sources</h3><p class="trade-panel-subtitle">Current estimates and historical effects</p></div><span class="trade-badge trade-badge--plain">Not guaranteed</span></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Fee APR</span><strong class="trade-number">4.20%</strong></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Blend lending APR</span><strong class="trade-number">2.10%</strong></div>
+                <div class="trade-key-value"><span class="trade-card-copy">BLND incentives</span><strong class="trade-number">0.80%</strong></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Realized trader-PnL effect</span><strong class="trade-number trade-negative">−1.34%</strong></div>
+                <div class="trade-key-value"><span class="trade-card-copy">Unrealized trader-PnL effect</span><strong class="trade-number trade-positive">+0.42%</strong></div>
+                <hr class="trade-divider">
+                <p class="trade-card-copy">All figures are illustrative. Asset-price performance and total historical return remain separate views.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="tables" data-section-panel aria-labelledby="tables-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="tables-title">Tables</h1>
+            <p class="trade-doc-lede">Dense, sortable financial tables use hairline dividers, 11px uppercase headers, tabular numerals, restrained row hover, and persistent empty states.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Options chain · illustrative market</h2>
+            <div class="trade-table-wrap">
+              <div class="trade-toolbar"><input class="trade-toolbar-input" id="table-filter" placeholder="Filter strikes or status…" aria-label="Filter example options chain"><button class="trade-button trade-button--secondary trade-button--sm" type="button">Filters</button></div>
+              <table class="trade-table" id="options-chain-table">
+                <thead><tr><th colspan="4"><span class="trade-chain-label trade-chain-label--call">Calls</span></th><th class="is-center">Strike</th><th colspan="4"><span class="trade-chain-label trade-chain-label--put">Puts</span></th></tr><tr><th>Bid</th><th>Ask</th><th>IV</th><th>Open interest</th><th class="is-center">Example</th><th>Bid</th><th>Ask</th><th>IV</th><th>Open interest</th></tr></thead>
+                <tbody>
+                  <tr data-filter-row><td class="is-numeric">$0.0218</td><td class="is-numeric trade-positive">$0.0231</td><td class="is-numeric">68.2%</td><td class="is-numeric">18,420</td><td class="is-center trade-strike">$0.18</td><td class="is-numeric">$0.0041</td><td class="is-numeric trade-negative">$0.0048</td><td class="is-numeric">71.4%</td><td class="is-numeric">9,280</td></tr>
+                  <tr data-filter-row><td class="is-numeric">$0.0138</td><td class="is-numeric trade-positive">$0.0146</td><td class="is-numeric">64.9%</td><td class="is-numeric">22,180</td><td class="is-center trade-strike">$0.20</td><td class="is-numeric">$0.0089</td><td class="is-numeric trade-negative">$0.0097</td><td class="is-numeric">67.1%</td><td class="is-numeric">16,110</td></tr>
+                  <tr data-filter-row><td class="is-numeric">$0.0072</td><td class="is-numeric trade-positive">$0.0081</td><td class="is-numeric">62.5%</td><td class="is-numeric">14,640</td><td class="is-center trade-strike">$0.22</td><td class="is-numeric">$0.0158</td><td class="is-numeric trade-negative">$0.0169</td><td class="is-numeric">65.8%</td><td class="is-numeric">20,740</td></tr>
+                  <tr data-filter-row><td class="is-numeric">$0.0035</td><td class="is-numeric trade-positive">$0.0042</td><td class="is-numeric">61.2%</td><td class="is-numeric">7,920</td><td class="is-center trade-strike">$0.24</td><td class="is-numeric">$0.0240</td><td class="is-numeric trade-negative">$0.0255</td><td class="is-numeric">64.2%</td><td class="is-numeric">11,380</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p class="trade-card-copy" style="margin-top:10px">Strike and expiration values are specimen data only. The protocol’s launch markets remain configurable.</p>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">RFQ quote comparison</h2>
+            <div class="trade-table-wrap">
+              <table class="trade-table trade-table--responsive">
+                <thead><tr><th>Writer</th><th>Premium</th><th>Settlement</th><th>Collateral</th><th>Quote expires</th><th>Status</th><th></th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Writer">GBA9…7K2P · verified terms</td><td data-label="Premium" class="is-numeric">$1,240.00</td><td data-label="Settlement">Configured · cashless</td><td data-label="Collateral" class="is-numeric">100% locked</td><td data-label="Quote expires" class="is-numeric">08:42</td><td data-label="Status"><span class="trade-badge trade-badge--live">Executable</span></td><td data-label="Action"><button class="trade-button trade-button--primary trade-button--sm" type="button">Review</button></td></tr>
+                  <tr><td data-label="Writer">GCF4…Q91M</td><td data-label="Premium" class="is-numeric">$1,210.00</td><td data-label="Settlement">Configured · cashless</td><td data-label="Collateral" class="is-numeric">100% locked</td><td data-label="Quote expires" class="is-numeric">02:18</td><td data-label="Status"><span class="trade-badge trade-badge--warning">Expiring</span></td><td data-label="Action"><button class="trade-button trade-button--secondary trade-button--sm" type="button">Review</button></td></tr>
+                  <tr><td data-label="Writer">GDQ8…B4TW</td><td data-label="Premium" class="is-numeric">$1,180.00</td><td data-label="Settlement">Configured · physical</td><td data-label="Collateral" class="is-numeric">100% locked</td><td data-label="Quote expires" class="is-numeric">—</td><td data-label="Status"><span class="trade-badge trade-badge--error">Expired</span></td><td data-label="Action"><button class="trade-button trade-button--secondary trade-button--sm" type="button" disabled>Unavailable</button></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Unified portfolio</h2>
+            <div class="trade-table-wrap">
+              <table class="trade-table trade-table--responsive">
+                <thead><tr><th>Product</th><th>Position</th><th>Exposure</th><th>Collateral / reserved</th><th>Unrealized PnL</th><th>Status</th></tr></thead>
+                <tbody>
+                  <tr><td data-label="Product">Perpetual</td><td data-label="Position">XLM / USDC · Long</td><td data-label="Exposure" class="is-numeric">$1,500</td><td data-label="Collateral / reserved" class="is-numeric">500 USDC</td><td data-label="Unrealized PnL" class="is-numeric trade-positive">+$82.40</td><td data-label="Status"><span class="trade-badge trade-badge--live">Open</span></td></tr>
+                  <tr><td data-label="Product">Option</td><td data-label="Position">XLM $0.20 call · Buyer</td><td data-label="Exposure" class="is-numeric">1,000 XLM</td><td data-label="Collateral / reserved" class="is-numeric">Premium paid</td><td data-label="Unrealized PnL" class="is-numeric trade-negative">−$4.20</td><td data-label="Status"><span class="trade-badge trade-badge--call">Active</span></td></tr>
+                  <tr><td data-label="Product">Vault</td><td data-label="Position">XLM / USDC LP</td><td data-label="Exposure" class="is-numeric">$4,642</td><td data-label="Collateral / reserved" class="is-numeric">4,284.2 shares</td><td data-label="Unrealized PnL" class="is-numeric">Decomposed view</td><td data-label="Status"><span class="trade-badge trade-badge--live">Available</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="charts" data-section-panel aria-labelledby="charts-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="charts-title">Charts</h1>
+            <p class="trade-doc-lede">Dark, low-chrome visualization with dashed horizontal grids, muted axes, two-pixel series, and restrained fills. Every chart preserves units and freshness.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Price & implied volatility</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-7"><div class="trade-card-heading">XLM / USDC price</div><div class="trade-card-copy">Example 30-day series · USD</div><canvas class="trade-chart-canvas" data-chart="price" aria-label="Example XLM price line chart"></canvas><div class="trade-chart-legend"><span style="--legend-color:var(--trade-accent)">Index price</span><span style="--legend-color:var(--trade-warning)">Oracle reference</span></div></div>
+              <div class="trade-doc-card trade-doc-span-5"><div class="trade-card-heading">Implied volatility</div><div class="trade-card-copy">Sample calls and puts by strike</div><canvas class="trade-chart-canvas" data-chart="iv" aria-label="Example implied volatility chart"></canvas><div class="trade-chart-legend"><span style="--legend-color:var(--trade-positive)">Calls</span><span style="--legend-color:var(--trade-negative)">Puts</span></div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Volume & portfolio</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-6"><div class="trade-card-heading">Weekly trading volume</div><div class="trade-card-copy">Example USDC per day</div><canvas class="trade-chart-canvas" data-chart="volume" aria-label="Example weekly trading volume bar chart"></canvas></div>
+              <div class="trade-doc-card trade-doc-span-6"><div class="trade-card-heading">Portfolio value</div><div class="trade-card-copy">Example 30-day performance</div><canvas class="trade-chart-canvas" data-chart="portfolio" aria-label="Example portfolio value line chart"></canvas></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="navigation" data-section-panel aria-labelledby="navigation-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Components</div>
+            <h1 class="trade-doc-title" id="navigation-title">Navigation</h1>
+            <p class="trade-doc-lede">One product shell for spot, options, perpetuals, earn, portfolio, and activity—using the older system’s compact raised active state.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Primary application navigation</h2>
+            <div class="trade-app-nav-spec">
+              <div class="trade-spec-row"><div class="trade-doc-brand-mark" aria-hidden="true">ST</div><span class="trade-app-nav-brand">Stellar Trading</span></div>
+              <a class="trade-app-nav-link" href="#">Dashboard</a><a class="trade-app-nav-link" href="#">Spot</a><a class="trade-app-nav-link is-active" href="#">Options</a><a class="trade-app-nav-link" href="#">Perpetuals</a><a class="trade-app-nav-link" href="#">Earn</a><a class="trade-app-nav-link" href="#">Portfolio</a><a class="trade-app-nav-link" href="#">Activity</a>
+              <div style="flex:1"></div><button class="trade-button trade-button--secondary trade-button--sm" type="button">GDK2…9QMV</button>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Context navigation & tabs</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-4"><div class="trade-context-nav"><button class="is-active" type="button">Overview</button><button type="button">Open positions</button><button type="button">Pending orders</button><button type="button">Collateral</button><button type="button">History</button></div></div>
+              <div class="trade-doc-card trade-doc-span-8 trade-spec-stack">
+                <div class="trade-tabs" role="tablist"><button class="trade-tab is-active" role="tab" aria-selected="true" type="button">Standardized</button><button class="trade-tab" role="tab" aria-selected="false" type="button">RFQs</button><button class="trade-tab" role="tab" aria-selected="false" type="button">Positions</button><button class="trade-tab" role="tab" aria-selected="false" type="button">Exercise & settlement</button></div>
+                <div class="trade-segmented"><button class="is-active" type="button">1D</button><button type="button">1W</button><button type="button">1M</button><button type="button">3M</button><button type="button">All</button></div>
+                <div class="trade-spec-row trade-small"><span class="trade-muted">Dashboard</span><span class="trade-muted">/</span><span class="trade-muted">Options</span><span class="trade-muted">/</span><span class="trade-secondary">XLM · sample expiration</span></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Command search</h2>
+            <div class="trade-doc-card">
+              <button class="trade-button trade-button--secondary" type="button" id="command-open">Search assets, markets, positions, RFQs, vaults… <kbd style="margin-left:16px;padding:2px 6px;border:1px solid var(--trade-border-default);border-radius:4px;background:var(--trade-bg-surface);color:var(--trade-text-muted)">⌘ K</kbd></button>
+            </div>
+          </div>
+        </section>
+
+        <section class="trade-doc-section" id="states" data-section-panel aria-labelledby="states-title">
+          <header class="trade-doc-section-head">
+            <div class="trade-doc-token">Patterns</div>
+            <h1 class="trade-doc-title" id="states-title">States & transactions</h1>
+            <p class="trade-doc-lede">Stale data, depleted capacity, trustline prerequisites, quote expiry, wallet signatures, and contract settlement remain visible and recoverable.</p>
+          </header>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Inline alerts</h2>
+            <div class="trade-doc-card trade-spec-stack">
+              <div class="trade-alert"><span class="trade-alert-mark">Info</span><div><strong>Trustline required for USDC.</strong><br>Add the asset trustline before this swap can be submitted.</div></div>
+              <div class="trade-alert trade-alert--warning"><span class="trade-alert-mark">Risk</span><div><strong>Oracle data is stale.</strong><br>Opening and liquidation-sensitive actions are blocked until a fresh update arrives.</div></div>
+              <div class="trade-alert trade-alert--error"><span class="trade-alert-mark">Fail</span><div><strong>Quote no longer executable.</strong><br>Capacity changed before submission. Refresh the quote or reduce the position size.</div></div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Wallet transaction timeline</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-doc-card trade-doc-span-6">
+                <ol class="trade-timeline">
+                  <li class="trade-timeline-step is-complete"><span class="trade-timeline-mark">1</span><div><div class="trade-timeline-title">Preview reviewed</div><div class="trade-timeline-detail">Assets, fees, price impact, and minimum received shown.</div></div></li>
+                  <li class="trade-timeline-step is-current"><span class="trade-timeline-mark">2</span><div><div class="trade-timeline-title">Awaiting wallet signature</div><div class="trade-timeline-detail">No funds move until the wallet request is approved.</div></div></li>
+                  <li class="trade-timeline-step"><span class="trade-timeline-mark">3</span><div><div class="trade-timeline-title">Submitted to Stellar</div><div class="trade-timeline-detail">Transaction hash appears after submission.</div></div></li>
+                  <li class="trade-timeline-step"><span class="trade-timeline-mark">4</span><div><div class="trade-timeline-title">Confirmed</div><div class="trade-timeline-detail">Balances and positions update from the ledger result.</div></div></li>
+                </ol>
+              </div>
+              <div class="trade-panel trade-doc-span-6 trade-spec-stack">
+                <div class="trade-panel-header"><div><h3 class="trade-panel-title">Wallet signature request</h3><p class="trade-panel-subtitle">Open XLM / USDC long · example</p></div><span class="trade-badge trade-badge--pending">Signature</span></div>
+                <dl class="trade-breakdown"><div class="trade-breakdown-row"><dt>Lock collateral</dt><dd>500.00 USDC</dd></div><div class="trade-breakdown-row"><dt>Position</dt><dd>$1,500 · 3× example</dd></div><div class="trade-breakdown-row"><dt>Maximum network + protocol cost</dt><dd>Shown at quote</dd></div><div class="trade-breakdown-row"><dt>Trustline / authorization</dt><dd>Ready</dd></div><div class="trade-breakdown-row trade-breakdown-row--total"><dt>Expected next state</dt><dd>Position submitted</dd></div></dl>
+                <button class="trade-button trade-button--primary trade-button--block" type="button">Open wallet</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="trade-doc-subsection">
+            <h2 class="trade-doc-subtitle">Empty, loading & unavailable</h2>
+            <div class="trade-doc-grid">
+              <div class="trade-panel trade-doc-span-4"><div class="trade-empty"><div class="trade-empty-mark">RFQ</div><h3 class="trade-empty-title">No quotes yet</h3><p class="trade-empty-copy">The request remains open. Quotes will appear here with premium, settlement, collateral, and expiry.</p><button class="trade-button trade-button--secondary trade-button--sm" type="button">Edit request</button></div></div>
+              <div class="trade-panel trade-doc-span-4 trade-spec-stack"><div class="trade-card-heading">Loading position data</div><div class="trade-skeleton" style="height:18px;width:72%">Loading</div><div class="trade-skeleton" style="height:44px">Loading</div><div class="trade-skeleton" style="height:12px;width:54%">Loading</div><p class="trade-card-copy">Loading values never appear as zero.</p></div>
+              <div class="trade-panel trade-panel--risk trade-doc-span-4 trade-spec-stack"><div class="trade-panel-header"><div><h3 class="trade-panel-title">Short capacity unavailable</h3><p class="trade-panel-subtitle">Current vault state · input preserved</p></div><span class="trade-badge trade-badge--limited">Limited</span></div><p class="trade-card-copy">The short-side limit is reached. Reduce size, switch direction, or wait for vault capacity to change.</p><button class="trade-button trade-button--secondary trade-button--sm" type="button">View capacity</button></div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div class="trade-scrim" id="command-palette" hidden>
+    <div class="trade-modal" role="dialog" aria-modal="true" aria-labelledby="command-title">
+      <div style="display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--trade-border-subtle)">
+        <input id="command-input" class="trade-input" placeholder="Search or jump to…" aria-labelledby="command-title">
+        <button class="trade-button trade-button--ghost trade-button--sm" id="command-close" type="button">Close</button>
+      </div>
+      <div style="padding:8px">
+        <div class="trade-card-kicker" id="command-title" style="padding:8px 12px">Suggested</div>
+        <button class="trade-context-nav" style="display:block;width:100%;text-align:left;margin-top:4px" type="button"><span class="trade-card-heading">XLM standardized options</span><span class="trade-card-copy" style="display:block">Market</span></button>
+        <button class="trade-context-nav" style="display:block;width:100%;text-align:left;margin-top:4px" type="button"><span class="trade-card-heading">Create option RFQ</span><span class="trade-card-copy" style="display:block">Action</span></button>
+        <button class="trade-context-nav" style="display:block;width:100%;text-align:left;margin-top:4px" type="button"><span class="trade-card-heading">XLM / USDC vault</span><span class="trade-card-copy" style="display:block">Vault</span></button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./preview.js"></script>
+</body>
+</html>

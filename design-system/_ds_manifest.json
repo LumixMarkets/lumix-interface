@@ -1,0 +1,126 @@
+{
+  "name": "Stellar Trading Design System",
+  "version": "0.2.0",
+  "status": "working-brand-layer-pending",
+  "source": {
+    "visual": "supplied-legacy-lumix-design-system",
+    "product": "supplied-stellar-trading-and-derivatives-brief",
+    "currentApplication": "supplied-lumix-application-archive"
+  },
+  "defaultTheme": "dark",
+  "themes": ["dark", "light"],
+  "visualProfile": {
+    "palette": "legacy-poly-blue-and-pure-gray",
+    "typeScale": [64, 48, 36, 28, 22, 18, 16, 14, 12],
+    "spacingBase": 8,
+    "cardRadius": 16,
+    "controlRadius": 12,
+    "documentationShell": "220px-sidebar-1100px-content"
+  },
+  "globalCssPaths": [
+    "tokens/primitives.css",
+    "tokens/themes.css",
+    "tokens/typography.css",
+    "tokens/spacing.css",
+    "tokens/motion.css",
+    "tokens/base.css",
+    "components/components.css",
+    "styles.css"
+  ],
+  "componentGroups": {
+    "core": [
+      "Button",
+      "IconButton",
+      "Panel",
+      "Badge",
+      "Field",
+      "AmountField",
+      "AssetSelector",
+      "Tabs",
+      "SegmentedControl",
+      "Breadcrumbs",
+      "CommandSearch",
+      "Tooltip",
+      "Popover",
+      "Drawer",
+      "Modal",
+      "Toast",
+      "InlineAlert",
+      "DataTable",
+      "Skeleton",
+      "EmptyState",
+      "ErrorState"
+    ],
+    "financial": [
+      "Price",
+      "PnL",
+      "Metric",
+      "DirectionSelector",
+      "QuoteBreakdown",
+      "RiskSummary",
+      "CapacityMeter",
+      "CapitalStack",
+      "StatusTimeline",
+      "OracleStatus"
+    ],
+    "product": [
+      "SpotSwapTicket",
+      "OptionContractHeader",
+      "OptionsChain",
+      "OptionBuyTicket",
+      "OptionWriteTicket",
+      "ExercisePreview",
+      "ExerciseSettlementHistory",
+      "RFQComposer",
+      "RFQQuoteTable",
+      "RFQStatusTimeline",
+      "PerpOrderTicket",
+      "CapacityPanel",
+      "PositionCard",
+      "PositionTable",
+      "VaultSummary",
+      "VaultCapitalBreakdown",
+      "ReturnDecomposition",
+      "DepositWithdrawTicket",
+      "UnifiedPortfolioTable",
+      "ActivityFeed",
+      "TransactionPreview",
+      "WalletSignatureRequest"
+    ]
+  },
+  "patterns": [
+    "patterns/product-patterns.md",
+    "patterns/states.md",
+    "patterns/responsive.md"
+  ],
+  "startingPoints": [
+    {
+      "name": "Foundations and component specimens",
+      "path": "index.html"
+    },
+    {
+      "name": "Product pattern contracts",
+      "path": "patterns/product-patterns.md"
+    },
+    {
+      "name": "State patterns",
+      "path": "patterns/states.md"
+    },
+    {
+      "name": "Reference comparison",
+      "path": "MIGRATION.md"
+    },
+    {
+      "name": "Supplied-source audit",
+      "path": "SOURCE_AUDIT.md"
+    }
+  ],
+  "deferred": [
+    "final brand identity",
+    "frontend framework component APIs",
+    "charting library",
+    "exact financial parameters",
+    "covered-call settlement asset",
+    "final vault allocation and withdrawal rules"
+  ]
+}
