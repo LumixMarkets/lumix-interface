@@ -1,0 +1,317 @@
+import { StrKey, extractBaseAddress, Transaction, TransactionBuilder } from "@stellar/stellar-sdk/base";
+import { circleTestnetUsdc, circleTestnetEurc, mainnetOnly } from "./spot-verified-assets.json";
+import tokenImages from "./spot-token-images.json";
+import { LUMIX_STELLAR_NETWORK } from "./stellar-network";
+
+export const SPOT_TESTNET = "Test SDF Network ; September 2015";
+export const SPOT_SCALE = BigInt("10000000");
+export const SPOT_MAX_AMOUNT = BigInt("9223372036854775807");
+// Verified against @bluxcc/core 0.3.7's classic swap builder, not BASE_FEE.
+export const BLUX_SWAP_FEE_PER_OPERATION = BigInt("100000");
+export const SPOT_QUOTE_REFRESH_MS = 30_000;
+export const CIRCLE_TESTNET_USDC = circleTestnetUsdc.issuer;
+
+export function spotLocalTokenImage(network: "testnet" | "mainnet", code: string, issuer?: string) {
+  if (!issuer) return code === "XLM" ? tokenImages.native.image : undefined;
+  const images: Record<string, { image: string }> = tokenImages.assets;
+  return images[`${network}:classic:${code}:${issuer}`]?.image;
+}
+export function spotHomeDomain(value: unknown) {
+  if (typeof value !== "string") return undefined;
+  const domain = value.trim().toLowerCase();
+  return domain.length <= 253 && /^(?:[a-z0-9](?:[a-z0-9-]{0,61}[a-z0-9])?\.)+[a-z](?:[a-z0-9-]{0,61}[a-z0-9])?$/.test(domain) ? domain : undefined;
+}
+export function spotCurrencyImage(metadata: unknown, asset: Pick<SpotAsset, "code" | "issuer">) {
+  if (!asset.issuer || !metadata || typeof metadata !== "object" || !("CURRENCIES" in metadata) || !Array.isArray(metadata.CURRENCIES)) return undefined;
+  const currency = metadata.CURRENCIES.find(entry => entry && entry.code === asset.code && entry.issuer === asset.issuer);
+  if (typeof currency?.image !== "string") return undefined;
+  try {
+    const url = new URL(currency.image);
+    return url.protocol === "https:" && !url.username && !url.password ? url.href : undefined;
+  } catch { return undefined; }
+}
+
+export type SpotAsset = {
+  id: string; network: "testnet"; kind: "native" | "classic";
+  code: string; issuer?: string; name: string; icon?: string; curated?: boolean;
+  authRequired?: boolean;
+  unavailableReason?: string;
+};
+export type SpotBalance = {
+  asset_type: string; balance: string; asset_code?: string; asset_issuer?: string;
+  selling_liabilities?: string; buying_liabilities?: string; limit?: string; is_authorized?: boolean;
+};
+export type SpotAccount = {
+  account_id: string; balances: SpotBalance[]; subentry_count: number;
+  num_sponsoring?: number; num_sponsored?: number;
+};
+export type SpotPathRecord = {
+  source_asset_type: string; source_asset_code?: string; source_asset_issuer?: string; source_amount: string;
+  destination_asset_type: string; destination_asset_code?: string; destination_asset_issuer?: string; destination_amount: string;
+  path: { asset_type: string; asset_code?: string; asset_issuer?: string }[];
+};
+export type SpotRequest = { from: SpotAsset; to: SpotAsset; amount: string; account?: string };
+export type SpotQuote = { key: string; request: SpotRequest; output: string; route: SpotAsset[] };
+export type SpotReceipt = { hash: string; received: string; fee: string; ledger: number };
+
+export function spotAsset(code: string, issuer?: string): SpotAsset {
+  if (!issuer) {
+    if (code !== "XLM") throw new Error("Only native XLM can omit an issuer.");
+    return { id: "testnet:native", network: "testnet", kind: "native", code: "XLM", name: "Stellar Lumens", icon: spotLocalTokenImage("testnet", "XLM"), curated: true };
+  }
+  if (!/^[a-zA-Z0-9]{1,12}$/.test(code) || !StrKey.isValidEd25519PublicKey(issuer)) throw new Error("Enter a classic asset code and a valid full Stellar issuer address.");
+  const verified = [circleTestnetUsdc, circleTestnetEurc].find(asset => asset.code === code && asset.issuer === issuer);
+  // Recognize copied Mainnet trustlines without presenting them as Testnet tokens.
+  // Their official artwork is used only on disabled, explicitly labelled entries.
+  const mainnet = mainnetOnly.find(asset => asset.code === code && asset.issuer === issuer);
+  return { id: `testnet:classic:${code}:${issuer}`, network: "testnet", kind: "classic", code, issuer,
+    name: verified?.name ?? mainnet?.name ?? code, icon: spotLocalTokenImage("testnet", code, issuer) ?? verified?.image ?? mainnet?.image,
+    curated: Boolean(verified), unavailableReason: mainnet?.reason };
+}
+export function bluxAsset(asset: SpotAsset) { return asset.kind === "native" ? "xlm" : `${asset.code}:${asset.issuer}`; }
+export function baseAccount(address: string) {
+  if (!StrKey.isValidEd25519PublicKey(address) && !StrKey.isValidMed25519PublicKey(address)) throw new Error("The wallet did not provide a valid Stellar account.");
+  return extractBaseAddress(address);
+}
+export function parseSpotAmount(value: string): bigint {
+  if (!/^(?:\d+(?:\.\d{0,7})?|\.\d{1,7})$/.test(value)) throw new Error("Enter an amount with up to 7 decimal places.");
+  const [whole, fraction = ""] = value.split(".");
+  const units = BigInt(whole || "0") * SPOT_SCALE + BigInt(fraction.padEnd(7, "0"));
+  if (units > SPOT_MAX_AMOUNT) throw new Error("This amount exceeds Stellar’s maximum.");
+  return units;
+}
+export function spotDecimal(units: bigint) {
+  const negative = units < BigInt("0"); const absolute = negative ? -units : units;
+  const fraction = (absolute % SPOT_SCALE).toString().padStart(7, "0").replace(/0+$/, "");
+  return `${negative ? "-" : ""}${absolute / SPOT_SCALE}${fraction ? `.${fraction}` : ""}`;
+}
+export function formatSpotAmount(value: string | bigint) {
+  try {
+    const units = typeof value === "bigint" ? value : parseSpotAmount(value);
+    const absolute = units < BigInt("0") ? -units : units;
+    const cents = (absolute + BigInt("50000")) / BigInt("100000");
+    const whole = (cents / BigInt("100")).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return `${units < BigInt("0") ? "−" : ""}${whole}.${(cents % BigInt("100")).toString().padStart(2, "0")}`;
+  } catch { return "—"; }
+}
+export function formatSpotFee(value: string | bigint) {
+  const units = typeof value === "bigint" ? value : parseSpotAmount(value);
+  return units > BigInt("0") && units < BigInt("100000") ? "<0.01" : formatSpotAmount(units);
+}
+export function parseSlippage(value: string) {
+  if (!/^\d+(?:\.\d{0,2})?$/.test(value)) return undefined;
+  const [whole, fraction = ""] = value.split(".");
+  const bps = Number(whole) * 100 + Number(fraction.padEnd(2, "0"));
+  return Number.isInteger(bps) && bps >= 1 && bps <= 500 ? bps : undefined;
+}
+export function spotAssetSearch(query: string, assets: SpotAsset[]) {
+  const text = query.trim();
+  if (StrKey.isValidEd25519PublicKey(text)) return { forIssuer: text };
+  const [code, issuer, extra] = text.split(":");
+  if (extra !== undefined) return undefined;
+  if (issuer && /^[a-zA-Z0-9]{1,12}$/.test(code) && StrKey.isValidEd25519PublicKey(issuer)) return { forCode: code.toUpperCase(), forIssuer: issuer };
+  const known = assets.find(asset => [asset.name, asset.code].some(value => value.toLowerCase() === text.toLowerCase()));
+  if (known?.kind === "classic") return { forCode: known.code.toUpperCase() };
+  return /^[a-zA-Z0-9]{1,12}$/.test(text) ? { forCode: text.toUpperCase() } : undefined;
+}
+export function slippageFraction(bps: number) {
+  if (!Number.isInteger(bps) || bps < 1 || bps > 500) throw new Error("Choose slippage between 0.01% and 5%.");
+  const fraction = bps / 10_000;
+  // Blux 0.3.7 converts (1 - slippage) from a binary Number to BigNumber.
+  // Nudge only a rounding undershoot toward stronger protection; its builder
+  // must never produce a minimum below the precise value shown in the review.
+  return 1 - fraction < (10_000 - bps) / 10_000 ? fraction - Number.EPSILON : fraction;
+}
+export function minimumReceived(output: string, bps: number) {
+  slippageFraction(bps);
+  const minimum = parseSpotAmount(output) * BigInt(10_000 - bps) / BigInt("10000");
+  return spotDecimal(minimum < BigInt("1") ? BigInt("1") : minimum);
+}
+export function spotRate(output: string, input: string) {
+  const denominator = parseSpotAmount(input);
+  return denominator > BigInt("0") ? formatSpotAmount(parseSpotAmount(output) * SPOT_SCALE / denominator) : "—";
+}
+export function spotRequestKey(request: SpotRequest) {
+  return [SPOT_TESTNET, request.account ?? "public", request.from.id, request.to.id, request.amount].join("|");
+}
+export function balanceLine(account: SpotAccount, asset: SpotAsset) {
+  return account.balances.find(line => asset.kind === "native" ? line.asset_type === "native"
+    : (line.asset_type === "credit_alphanum4" || line.asset_type === "credit_alphanum12") && line.asset_code === asset.code && line.asset_issuer === asset.issuer);
+}
+export function availableAsset(account: SpotAccount, asset: SpotAsset) {
+  const line = balanceLine(account, asset);
+  if (!line || line.is_authorized === false) return BigInt("0");
+  const balance = parseSpotAmount(line.balance) - parseSpotAmount(line.selling_liabilities ?? "0");
+  return balance > BigInt("0") ? balance : BigInt("0");
+}
+export function trustlineChange(account: SpotAccount, to: SpotAsset, output?: string) {
+  if (to.kind === "native") return { operations: 1, newEntries: 0 };
+  const line = balanceLine(account, to);
+  if (!line) return { operations: 2, newEntries: 1 };
+  const capacity = parseSpotAmount(line.limit ?? "922337203685.4775807") - parseSpotAmount(line.balance) - parseSpotAmount(line.buying_liabilities ?? "0");
+  return { operations: output && parseSpotAmount(output) > capacity ? 2 : 1, newEntries: 0 };
+}
+export function spotRequirements(account: SpotAccount, from: SpotAsset, to: SpotAsset, reserve: bigint, output?: string) {
+  const { operations, newEntries } = trustlineChange(account, to, output);
+  const entries = 2 + account.subentry_count + (account.num_sponsoring ?? 0) - (account.num_sponsored ?? 0) + newEntries;
+  const minimumBalance = BigInt(Math.max(0, entries)) * reserve;
+  const fee = BLUX_SWAP_FEE_PER_OPERATION * BigInt(operations);
+  const native = availableAsset(account, spotAsset("XLM"));
+  const freeNative = native - minimumBalance - fee;
+  const max = from.kind === "native" ? freeNative : availableAsset(account, from);
+  return { operations, newEntries, minimumBalance, fee, max: max > BigInt("0") ? max : BigInt("0"), enoughXlm: freeNative >= BigInt("0") };
+}
+function pathAsset(record: { asset_type: string; asset_code?: string; asset_issuer?: string }) {
+  if (!["native", "credit_alphanum4", "credit_alphanum12"].includes(record.asset_type)) throw new Error("The quote contains an unsupported asset type.");
+  return record.asset_type === "native" ? spotAsset("XLM") : spotAsset(record.asset_code ?? "", record.asset_issuer);
+}
+export function chooseSpotPath(records: SpotPathRecord[], request: SpotRequest): SpotPathRecord | undefined {
+  const valid = records.filter(record => {
+    try {
+      return pathAsset({ asset_type: record.source_asset_type, asset_code: record.source_asset_code, asset_issuer: record.source_asset_issuer }).id === request.from.id
+        && pathAsset({ asset_type: record.destination_asset_type, asset_code: record.destination_asset_code, asset_issuer: record.destination_asset_issuer }).id === request.to.id
+        && parseSpotAmount(record.source_amount) === parseSpotAmount(request.amount) && parseSpotAmount(record.destination_amount) > BigInt("0")
+        && record.path.every(asset => Boolean(pathAsset(asset)));
+    } catch { return false; }
+  });
+  // Match the installed Blux builder's M_: prefer its first <=1-hop path.
+  return valid.find(record => record.path.length < 2) ?? valid[0];
+}
+export function quoteFromPaths(records: SpotPathRecord[], request: SpotRequest): SpotQuote | null {
+  const path = chooseSpotPath(records, request);
+  if (records.length && !path) throw new Error("The quote did not match the selected assets or amount. Change the amount to request a new quote.");
+  return path ? { key: spotRequestKey(request), request, output: spotDecimal(parseSpotAmount(path.destination_amount)),
+    route: [request.from, ...path.path.map(pathAsset), request.to] } : null;
+}
+export function spotValidation(account: SpotAccount, request: SpotRequest, reserve: bigint, output?: string) {
+  if (request.from.unavailableReason || request.to.unavailableReason) return request.from.unavailableReason ?? request.to.unavailableReason;
+  if (request.from.id === request.to.id) return "Choose two different assets.";
+  const amount = parseSpotAmount(request.amount);
+  if (amount === BigInt("0")) return "Enter an amount greater than zero.";
+  const source = balanceLine(account, request.from); const destination = balanceLine(account, request.to);
+  if (!source) return `You have no ${request.from.code} balance with this issuer.`;
+  if (source.is_authorized === false || destination?.is_authorized === false || (!destination && request.to.authRequired)) return "This asset requires issuer authorization before it can be swapped.";
+  const requirements = spotRequirements(account, request.from, request.to, reserve, output);
+  if (!requirements.enoughXlm) return "Insufficient XLM for the account reserve, transaction fee and receiving trustline.";
+  if (amount > requirements.max) return request.from.kind === "native" ? "Keep enough XLM for account reserves and the transaction fee. Use Max." : "Insufficient available balance after open-offer liabilities.";
+  return undefined;
+}
+export function spotError(error: unknown) {
+  const object = error as { message?: string; response?: { data?: { extras?: { result_codes?: { transaction?: string; operations?: string[] } } } } };
+  const codes = object?.response?.data?.extras?.result_codes;
+  if (codes) {
+    const all = [codes.transaction, ...(codes.operations ?? [])].filter(Boolean).join(", ");
+    if (all.includes("underfunded")) return "Insufficient balance after reserves, fees or open offers.";
+    if (all.includes("low_reserve")) return "Insufficient XLM for the receiving trustline reserve.";
+    if (all.includes("under_dest_min")) return "The market moved below your minimum received. Refresh the quote.";
+    if (all.includes("line_full")) return "The receiving trustline cannot accept this amount. Check its limit and open offers.";
+    if (all.includes("no_trust") || all.includes("not_authorized")) return "The asset trustline needs issuer authorization.";
+    if (all.includes("too_few_offers")) return "No route available for this amount.";
+    if (all.includes("insufficient_fee")) return "Testnet is congested and rejected the fee limit. Try again later.";
+    return `Stellar Testnet rejected the transaction (${all}).`;
+  }
+  const message = object?.message ?? (typeof error === "string" ? error : "The Testnet request failed. Try again.");
+  return message.replace(/\bBlux(?:’s|'s)?\s*:?\s*/gi, "");
+}
+export function walletRejected(error: unknown) {
+  const codes = (error as { response?: { data?: { extras?: { result_codes?: unknown } } } })?.response?.data?.extras?.result_codes;
+  if (codes) return false;
+  return /user.*(?:reject|denied|declined|cancel)|request.*(?:reject|declined)|approval.*(?:denied|cancel)|cancelled|canceled|dismissed/i.test(spotError(error));
+}
+
+export const SPOT_CURATED_ASSETS: SpotAsset[] = [
+  spotAsset("XLM"), spotAsset("USDC", circleTestnetUsdc.issuer), spotAsset("EURC", circleTestnetEurc.issuer)
+];
+export function mergeSpotAssets(...groups: SpotAsset[][]) {
+  const map = new Map<string, SpotAsset>();
+  for (const asset of groups.flat()) {
+    if (asset.network !== "testnet") continue;
+    const previous = map.get(asset.id);
+    const known = previous?.curated ? previous : asset.curated ? asset : undefined;
+    map.set(asset.id, { ...previous, ...asset, ...(known ? { name: known.name, icon: known.icon, curated: true } : {}) });
+  }
+  return Array.from(map.values());
+}
+
+export class SpotHttpError extends Error {
+  constructor(public status: number, message: string) { super(message); }
+}
+export async function spotRead<T>(path: string, signal?: AbortSignal): Promise<T> {
+  const response = await fetch(`${LUMIX_STELLAR_NETWORK.horizonUrl}${path}`, {
+    signal: signal ?? AbortSignal.timeout(15_000), cache: "no-store", headers: { Accept: "application/json" },
+  });
+  if (!response.ok) throw new SpotHttpError(response.status, `Stellar Testnet could not answer this request (${response.status}). Try again.`);
+  return response.json() as Promise<T>;
+}
+export async function verifySpotNetwork() {
+  if (LUMIX_STELLAR_NETWORK.passphrase !== SPOT_TESTNET) throw new Error("Spot only supports Stellar Testnet.");
+  const root = await spotRead<{ network_passphrase: string }>("");
+  if (root.network_passphrase !== SPOT_TESTNET) throw new Error("The configured Horizon endpoint is not Stellar Testnet. Submission is blocked.");
+  const explorer = new URL(LUMIX_STELLAR_NETWORK.explorerBaseUrl);
+  if (!explorer.pathname.endsWith("/testnet")) throw new Error("Configure a Stellar Testnet explorer before swapping.");
+}
+export async function spotLedgerParameters() {
+  const [, data] = await Promise.all([
+    verifySpotNetwork(),
+    spotRead<{ _embedded: { records: { base_reserve_in_stroops: number; base_fee_in_stroops: number; closed_at?: string }[] } }>("/ledgers?order=desc&limit=1"),
+  ]);
+  const ledger = data._embedded.records[0];
+  if (!ledger || ledger.base_reserve_in_stroops !== 5_000_000) throw new Error("The Testnet reserve changed. Swapping is temporarily unavailable.");
+  return { reserve: BigInt(ledger.base_reserve_in_stroops), baseFee: BigInt(ledger.base_fee_in_stroops), closedAt: ledger.closed_at ? Date.parse(ledger.closed_at) : undefined };
+}
+export function spotTransactionUrl(hash: string) {
+  if (!/^[a-f0-9]{64}$/i.test(hash)) return undefined;
+  const explorer = new URL(LUMIX_STELLAR_NETWORK.explorerBaseUrl);
+  return explorer.pathname.endsWith("/testnet") ? `${explorer.toString().replace(/\/$/, "")}/tx/${hash}` : undefined;
+}
+
+// Compatibility boundary for Blux 0.3.7: inspect its re-quoted envelope before
+// calling the original wallet signer. Never build a replacement swap here.
+export function spotEnvelopeHash(xdr: string) {
+  const tx = TransactionBuilder.fromXDR(xdr, SPOT_TESTNET);
+  if (!(tx instanceof Transaction)) throw new Error("An unexpected signed envelope was returned. Submission is blocked.");
+  return Array.from(tx.hash(), byte => byte.toString(16).padStart(2, "0")).join("");
+}
+export function verifySignedSpotEnvelope(xdr: string, expected: { hash: string; expiresAt: number }, now = Date.now()) {
+  if (spotEnvelopeHash(xdr) !== expected.hash) throw new Error("The wallet changed the reviewed transaction. Submission is blocked.");
+  if (now >= expected.expiresAt) throw new Error("The transaction expired while waiting for wallet approval. Refresh and review it again.");
+}
+export function inspectSpotEnvelope(xdr: string, quote: SpotQuote, bps: number, account: SpotAccount, reserve: bigint) {
+  const tx = TransactionBuilder.fromXDR(xdr, SPOT_TESTNET);
+  if (!(tx instanceof Transaction) || tx.source !== account.account_id) throw new Error("The swap transaction source changed. Refresh before approving.");
+  const paths = tx.operations.filter(operation => operation.type === "pathPaymentStrictSend");
+  if (paths.length !== 1 || tx.operations.length > 2 || tx.memo.type !== "none") throw new Error("An unexpected swap transaction was returned. Approval is blocked.");
+  const operation = paths[0];
+  const { request } = quote;
+  const send = operation.sendAsset.isNative() ? spotAsset("XLM") : spotAsset(operation.sendAsset.getCode(), operation.sendAsset.getIssuer());
+  const receive = operation.destAsset.isNative() ? spotAsset("XLM") : spotAsset(operation.destAsset.getCode(), operation.destAsset.getIssuer());
+  if (send.id !== request.from.id || receive.id !== request.to.id || operation.destination !== account.account_id
+    || (operation.source && operation.source !== account.account_id) || parseSpotAmount(operation.sendAmount) !== parseSpotAmount(request.amount)) {
+    throw new Error("The swap assets, amount or recipient changed. Approval is blocked.");
+  }
+  if (parseSpotAmount(operation.destMin) < parseSpotAmount(minimumReceived(quote.output, bps))) {
+    throw new Error("The new quote would weaken your reviewed minimum received. Refresh the quote and review it again.");
+  }
+  let newEntry = 0;
+  for (const op of tx.operations) {
+    if (op.type === "pathPaymentStrictSend") continue;
+    if (op.type !== "changeTrust" || !("getCode" in op.line) || op.line.getCode() !== request.to.code
+      || op.line.getIssuer() !== request.to.issuer || (op.source && op.source !== account.account_id)) {
+      throw new Error("The swap contains an unexpected operation. Approval is blocked.");
+    }
+    if (!balanceLine(account, request.to)) newEntry += 1;
+  }
+  const requirements = spotRequirements(account, request.from, request.to, reserve, quote.output);
+  if (tx.operations.length !== requirements.operations || (requirements.operations === 2 && tx.operations[0].type !== "changeTrust")) {
+    throw new Error("The receiving trustline must be established before the swap. Refresh and review the transaction again.");
+  }
+  const fee = BigInt(tx.fee);
+  if (fee !== BLUX_SWAP_FEE_PER_OPERATION * BigInt(tx.operations.length) || fee > requirements.fee) {
+    throw new Error("The transaction fee changed. Refresh the quote and review it again.");
+  }
+  const entries = 2 + account.subentry_count + (account.num_sponsoring ?? 0) - (account.num_sponsored ?? 0) + newEntry;
+  const xlmNeeded = BigInt(Math.max(0, entries)) * reserve + fee + (request.from.kind === "native" ? parseSpotAmount(request.amount) : BigInt("0"));
+  if (availableAsset(account, spotAsset("XLM")) < xlmNeeded) throw new Error("Insufficient XLM for this transaction’s reserve and fee.");
+  if (!tx.timeBounds || !Number(tx.timeBounds.maxTime)) throw new Error("The swap has no expiration. Approval is blocked.");
+  return { hash: spotEnvelopeHash(xdr), minimum: operation.destMin, fee, expiresAt: Number(tx.timeBounds.maxTime) * 1000 };
+}
