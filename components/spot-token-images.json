@@ -1,0 +1,327 @@
+{
+  "checkedAt": "2026-10-11",
+  "discoverySource": "https://api.stellar.expert/explorer/public/asset?order=desc&sort=rating&limit=100",
+  "native": {
+    "name": "Stellar Lumens",
+    "image": "/tokens/stellar/xlm.jpg",
+    "source": "https://stellar.org/brand-resources",
+    "imageSource": "https://coin-images.coingecko.com/coins/images/100/large/fmpFRHHQ_400x400.jpg?1735231350"
+  },
+  "assets": {
+    "mainnet:classic:USDC:GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN": {
+      "network": "mainnet",
+      "code": "USDC",
+      "issuer": "GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN",
+      "name": "USD Coin",
+      "image": "/tokens/stellar/usdc.svg",
+      "source": "https://centre.io/.well-known/stellar.toml",
+      "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/usdc.zip",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/USDC-GA5ZSEJYB37JRC5AVCIA5MOP4RHTM335X2KGX3IHOJAPP5RE34K4KZVN-1",
+      "archiveEntry": "Token Logo/USDC Token.svg"
+    },
+    "mainnet:classic:EURC:GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2": {
+      "network": "mainnet",
+      "code": "EURC",
+      "issuer": "GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2",
+      "name": "EURC",
+      "image": "/tokens/stellar/eurc.svg",
+      "source": "https://www.circle.com/eurc",
+      "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/eurc.zip",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/EURC-GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2-1",
+      "archiveEntry": "Token Logo/EURC Token.svg"
+    },
+    "mainnet:classic:AQUA:GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA": {
+      "network": "mainnet",
+      "code": "AQUA",
+      "issuer": "GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA",
+      "name": "AQUA",
+      "image": "/tokens/stellar/aqua.png",
+      "source": "https://aqua.network/.well-known/stellar.toml",
+      "imageSource": "https://aqua.network/assets/img/aqua-logo.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/AQUA-GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA-1"
+    },
+    "mainnet:classic:SHX:GDSTRSHXHGJ7ZIVRBXEYE5Q74XUVCUSEKEBR7UCHEUUEK72N7I7KJ6JH": {
+      "network": "mainnet",
+      "code": "SHX",
+      "issuer": "GDSTRSHXHGJ7ZIVRBXEYE5Q74XUVCUSEKEBR7UCHEUUEK72N7I7KJ6JH",
+      "name": "Stronghold SHx",
+      "image": "/tokens/stellar/shx.png",
+      "source": "https://stronghold.co/.well-known/stellar.toml",
+      "imageSource": "https://meta.stellar.expert/whve6bimaxm2gx2ovz5ctmjk4kd3l633gtwxqhwjnekpe4q3bh5a",
+      "note": "Issuer metadata image cached by Stellar Expert; original URL unavailable.",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/SHX-GDSTRSHXHGJ7ZIVRBXEYE5Q74XUVCUSEKEBR7UCHEUUEK72N7I7KJ6JH-1"
+    },
+    "mainnet:classic:yXLM:GARDNV3Q7YGT4AKSDF25LT32YSCCW4EV22Y2TV3I2PU2MMXJTEDL5T55": {
+      "network": "mainnet",
+      "code": "yXLM",
+      "issuer": "GARDNV3Q7YGT4AKSDF25LT32YSCCW4EV22Y2TV3I2PU2MMXJTEDL5T55",
+      "name": "yXLM",
+      "image": "/tokens/stellar/yxlm.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://ultracapital.xyz/static/images/icons/yXLM.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/yXLM-GARDNV3Q7YGT4AKSDF25LT32YSCCW4EV22Y2TV3I2PU2MMXJTEDL5T55-1"
+    },
+    "mainnet:classic:yUSDC:GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF": {
+      "network": "mainnet",
+      "code": "yUSDC",
+      "issuer": "GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF",
+      "name": "yUSDC",
+      "image": "/tokens/stellar/yusdc.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://meta.stellar.expert/7hx6tqrpowbicgjphreunco6zmbeyynmvq4stgl5q44zpzckcp6a",
+      "note": "Issuer metadata image cached by Stellar Expert; original URL unavailable: https://ultracapital.xyz/static/images/icons/yUSDC.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/yUSDC-GDGTVWSM4MGS4T7Z6W4RPWOCHE2I6RDFCIFZGS3DOA63LWQTRNZNTTFF-2"
+    },
+    "mainnet:classic:yBTC:GBUVRNH4RW4VLHP4C5MOF46RRIRZLAVHYGX45MVSTKA2F6TMR7E7L6NW": {
+      "network": "mainnet",
+      "code": "yBTC",
+      "issuer": "GBUVRNH4RW4VLHP4C5MOF46RRIRZLAVHYGX45MVSTKA2F6TMR7E7L6NW",
+      "name": "yBTC",
+      "image": "/tokens/stellar/ybtc.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://ultracapital.xyz/static/images/icons/yBTC.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/yBTC-GBUVRNH4RW4VLHP4C5MOF46RRIRZLAVHYGX45MVSTKA2F6TMR7E7L6NW-1"
+    },
+    "mainnet:classic:yETH:GDYQNEF2UWTK4L6HITMT53MZ6F5QWO3Q4UVE6SCGC4OMEQIZQQDERQFD": {
+      "network": "mainnet",
+      "code": "yETH",
+      "issuer": "GDYQNEF2UWTK4L6HITMT53MZ6F5QWO3Q4UVE6SCGC4OMEQIZQQDERQFD",
+      "name": "yETH",
+      "image": "/tokens/stellar/yeth.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://ultracapital.xyz/static/images/icons/yETH.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/yETH-GDYQNEF2UWTK4L6HITMT53MZ6F5QWO3Q4UVE6SCGC4OMEQIZQQDERQFD-1"
+    },
+    "mainnet:classic:BTC:GDPJALI4AZKUU2W426U5WKMAT6CN3AJRPIIRYR2YM54TL2GDWO5O2MZM": {
+      "network": "mainnet",
+      "code": "BTC",
+      "issuer": "GDPJALI4AZKUU2W426U5WKMAT6CN3AJRPIIRYR2YM54TL2GDWO5O2MZM",
+      "name": "BTC",
+      "image": "/tokens/stellar/btc.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://ultracapital.xyz/static/images/icons/BTC.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/BTC-GDPJALI4AZKUU2W426U5WKMAT6CN3AJRPIIRYR2YM54TL2GDWO5O2MZM-1"
+    },
+    "mainnet:classic:ETH:GBFXOHVAS43OIWNIO7XLRJAHT3BICFEIKOJLZVXNT572MISM4CMGSOCC": {
+      "network": "mainnet",
+      "code": "ETH",
+      "issuer": "GBFXOHVAS43OIWNIO7XLRJAHT3BICFEIKOJLZVXNT572MISM4CMGSOCC",
+      "name": "ETH",
+      "image": "/tokens/stellar/eth.png",
+      "source": "https://ultracapital.xyz/.well-known/stellar.toml",
+      "imageSource": "https://ultracapital.xyz/static/images/icons/ETH.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/ETH-GBFXOHVAS43OIWNIO7XLRJAHT3BICFEIKOJLZVXNT572MISM4CMGSOCC-1"
+    },
+    "mainnet:classic:SSLX:GBHFGY3ZNEJWLNO4LBUKLYOCEK4V7ENEBJGPRHHX7JU47GWHBREH37UR": {
+      "network": "mainnet",
+      "code": "SSLX",
+      "issuer": "GBHFGY3ZNEJWLNO4LBUKLYOCEK4V7ENEBJGPRHHX7JU47GWHBREH37UR",
+      "name": "SSLX",
+      "image": "/tokens/stellar/sslx.png",
+      "source": "https://sslx.sl8.online/.well-known/stellar.toml",
+      "imageSource": "https://sl8.online/assets/sslx-icon-e36e8c6134f6d93e6af1cd4d084a053c.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/SSLX-GBHFGY3ZNEJWLNO4LBUKLYOCEK4V7ENEBJGPRHHX7JU47GWHBREH37UR-1"
+    },
+    "mainnet:classic:ARS:GCYE7C77EB5AWAA25R5XMWNI2EDOKTTFTTPZKM2SR5DI4B4WFD52DARS": {
+      "network": "mainnet",
+      "code": "ARS",
+      "issuer": "GCYE7C77EB5AWAA25R5XMWNI2EDOKTTFTTPZKM2SR5DI4B4WFD52DARS",
+      "name": "Peso Digital",
+      "image": "/tokens/stellar/ars.png",
+      "source": "https://api.anclap.com/.well-known/stellar.toml",
+      "imageSource": "https://static.anclap.com/coin/ars.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/ARS-GCYE7C77EB5AWAA25R5XMWNI2EDOKTTFTTPZKM2SR5DI4B4WFD52DARS-1"
+    },
+    "mainnet:classic:PEN:GA4TDPNUCZPTOHB3TKUYMDCRVATXKEADH7ZEYEBWJKQKE2UBFCYNBPEN": {
+      "network": "mainnet",
+      "code": "PEN",
+      "issuer": "GA4TDPNUCZPTOHB3TKUYMDCRVATXKEADH7ZEYEBWJKQKE2UBFCYNBPEN",
+      "name": "Sol Digital",
+      "image": "/tokens/stellar/pen.png",
+      "source": "https://api.anclap.com/.well-known/stellar.toml",
+      "imageSource": "https://static.anclap.com/coin/pen.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/PEN-GA4TDPNUCZPTOHB3TKUYMDCRVATXKEADH7ZEYEBWJKQKE2UBFCYNBPEN-1"
+    },
+    "mainnet:classic:ARST:GCSAZVWXZKWS4XS223M5F54H2B6XPIIXZZGP7KEAIU6YSL5HDRGCI3DG": {
+      "network": "mainnet",
+      "code": "ARST",
+      "issuer": "GCSAZVWXZKWS4XS223M5F54H2B6XPIIXZZGP7KEAIU6YSL5HDRGCI3DG",
+      "name": "ARST",
+      "image": "/tokens/stellar/arst.png",
+      "source": "https://pubnet-sep.latamex.com/.well-known/stellar.toml",
+      "imageSource": "https://sep.latamex.com/arst-logo.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/ARST-GCSAZVWXZKWS4XS223M5F54H2B6XPIIXZZGP7KEAIU6YSL5HDRGCI3DG-1"
+    },
+    "mainnet:classic:ZARZ:GAROH4EV3WVVTRQKEY43GZK3XSRBEYETRVZ7SVG5LHWOAANSMCTJBB3U": {
+      "network": "mainnet",
+      "code": "ZARZ",
+      "issuer": "GAROH4EV3WVVTRQKEY43GZK3XSRBEYETRVZ7SVG5LHWOAANSMCTJBB3U",
+      "name": "zeam ZAR",
+      "image": "/tokens/stellar/zarz.png",
+      "source": "https://zeam.money/.well-known/stellar.toml",
+      "imageSource": "https://imagedelivery.net/oLenz0kq92Vui1vUax_Fhg/f2dcbefd-6e1a-4f64-5366-7dd29d429100/public",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/ZARZ-GAROH4EV3WVVTRQKEY43GZK3XSRBEYETRVZ7SVG5LHWOAANSMCTJBB3U-1"
+    },
+    "mainnet:classic:USDZ:GAKTLPC4ZV37SSCITQ5IS5AQ4WPF4CF4VZJQPPAROSGXMYOATF5U6XPR": {
+      "network": "mainnet",
+      "code": "USDZ",
+      "issuer": "GAKTLPC4ZV37SSCITQ5IS5AQ4WPF4CF4VZJQPPAROSGXMYOATF5U6XPR",
+      "name": "zeam USD",
+      "image": "/tokens/stellar/usdz.png",
+      "source": "https://zeam.money/.well-known/stellar.toml",
+      "imageSource": "https://imagedelivery.net/oLenz0kq92Vui1vUax_Fhg/f2dcbefd-6e1a-4f64-5366-7dd29d429100/public",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/USDZ-GAKTLPC4ZV37SSCITQ5IS5AQ4WPF4CF4VZJQPPAROSGXMYOATF5U6XPR-1"
+    },
+    "mainnet:classic:CETES:GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC": {
+      "network": "mainnet",
+      "code": "CETES",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "name": "Etherfuse CETES",
+      "image": "/tokens/stellar/cetes.png",
+      "source": "https://etherfuse.com/.well-known/stellar.toml",
+      "imageSource": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-cetes.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/CETES-GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC-2"
+    },
+    "mainnet:classic:USTRY:GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC": {
+      "network": "mainnet",
+      "code": "USTRY",
+      "issuer": "GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC",
+      "name": "Etherfuse USTRY",
+      "image": "/tokens/stellar/ustry.png",
+      "source": "https://etherfuse.com/.well-known/stellar.toml",
+      "imageSource": "https://stablebonds.s3.us-west-2.amazonaws.com/stablebond/spl-ustry.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/USTRY-GCRYUGD5NVARGXT56XEZI5CIFCQETYHAPQQTHO2O3IQZTHDH4LATMYWC-2"
+    },
+    "mainnet:classic:PYUSD:GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5": {
+      "network": "mainnet",
+      "code": "PYUSD",
+      "issuer": "GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5",
+      "name": "PYUSD",
+      "image": "/tokens/stellar/pyusd.png",
+      "source": "https://token-metadata.paxos.com/.well-known/stellar.toml",
+      "imageSource": "https://424565.fs1.hubspotusercontent-na1.net/hubfs/424565/PYUSDLOGO.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/PYUSD-GDQE7IXJ4HUHV6RQHIUPRJSEZE4DRS5WY577O2FY6YQ5LVWZ7JZTU2V5-2"
+    },
+    "mainnet:classic:AFR:GBX6YI45VU7WNAAKA3RBFDR3I3UKNFHTJPQ5F6KOOKSGYIAM4TRQN54W": {
+      "network": "mainnet",
+      "code": "AFR",
+      "issuer": "GBX6YI45VU7WNAAKA3RBFDR3I3UKNFHTJPQ5F6KOOKSGYIAM4TRQN54W",
+      "name": "AFREUM",
+      "image": "/tokens/stellar/afr.png",
+      "source": "https://afreum.com/.well-known/stellar.toml",
+      "imageSource": "https://afreum.com/stellar/ST_Afreum.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/AFR-GBX6YI45VU7WNAAKA3RBFDR3I3UKNFHTJPQ5F6KOOKSGYIAM4TRQN54W-1"
+    },
+    "mainnet:classic:NGNC:GASBV6W7GGED66MXEVC7YZHTWWYMSVYEY35USF2HJZBLABLYIFQGXZY6": {
+      "network": "mainnet",
+      "code": "NGNC",
+      "issuer": "GASBV6W7GGED66MXEVC7YZHTWWYMSVYEY35USF2HJZBLABLYIFQGXZY6",
+      "name": "NGN Coin",
+      "image": "/tokens/stellar/ngnc.png",
+      "source": "https://ngnc.online/.well-known/stellar.toml",
+      "imageSource": "https://uploads-ssl.webflow.com/60a70a1080cf2974d4b1595e/61961ce43c530394bcb05349_NGRC.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/NGNC-GASBV6W7GGED66MXEVC7YZHTWWYMSVYEY35USF2HJZBLABLYIFQGXZY6-1"
+    },
+    "mainnet:classic:SCOP:GC6OYQJIZF3HFXCYPFCBXYXNGIBQ4TNSFUBUXQJOZWIP6F3YZK4QH3VQ": {
+      "network": "mainnet",
+      "code": "SCOP",
+      "issuer": "GC6OYQJIZF3HFXCYPFCBXYXNGIBQ4TNSFUBUXQJOZWIP6F3YZK4QH3VQ",
+      "name": "Scopuly",
+      "image": "/tokens/stellar/scop.png",
+      "source": "https://scopuly.com/.well-known/stellar.toml",
+      "imageSource": "https://scopuly.com/img/logo/icon.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/SCOP-GC6OYQJIZF3HFXCYPFCBXYXNGIBQ4TNSFUBUXQJOZWIP6F3YZK4QH3VQ-1"
+    },
+    "mainnet:classic:TFT:GBOVQKJYHXRR3DX6NOX2RRYFRCUMSADGDESTDNBDS6CDVLGVESRTAC47": {
+      "network": "mainnet",
+      "code": "TFT",
+      "issuer": "GBOVQKJYHXRR3DX6NOX2RRYFRCUMSADGDESTDNBDS6CDVLGVESRTAC47",
+      "name": "Threefold Token",
+      "image": "/tokens/stellar/tft.png",
+      "source": "https://threefold.io/.well-known/stellar.toml",
+      "imageSource": "https://threefoldfoundation.github.io/tft/tft_icon.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/TFT-GBOVQKJYHXRR3DX6NOX2RRYFRCUMSADGDESTDNBDS6CDVLGVESRTAC47-1"
+    },
+    "mainnet:classic:GOLD:GBC5ZGK6MQU3XG5Y72SXPA7P5R5NHYT2475SNEJB2U3EQ6J56QLVGOLD": {
+      "network": "mainnet",
+      "code": "GOLD",
+      "issuer": "GBC5ZGK6MQU3XG5Y72SXPA7P5R5NHYT2475SNEJB2U3EQ6J56QLVGOLD",
+      "name": "Gold Gram",
+      "image": "/tokens/stellar/gold.png",
+      "source": "https://mintx.co/.well-known/stellar.toml",
+      "imageSource": "https://www.mintx.co/images/logo100.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/GOLD-GBC5ZGK6MQU3XG5Y72SXPA7P5R5NHYT2475SNEJB2U3EQ6J56QLVGOLD-1"
+    },
+    "mainnet:classic:SLVR:GBZVELEQD3WBN3R3VAG64HVBDOZ76ZL6QPLSFGKWPFED33Q3234NSLVR": {
+      "network": "mainnet",
+      "code": "SLVR",
+      "issuer": "GBZVELEQD3WBN3R3VAG64HVBDOZ76ZL6QPLSFGKWPFED33Q3234NSLVR",
+      "name": "Silver Gram",
+      "image": "/tokens/stellar/slvr.png",
+      "source": "https://mintx.co/.well-known/stellar.toml",
+      "imageSource": "https://www.mintx.co/images/logo-silver100.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/SLVR-GBZVELEQD3WBN3R3VAG64HVBDOZ76ZL6QPLSFGKWPFED33Q3234NSLVR-1"
+    },
+    "mainnet:classic:GYEN:GDF6VOEGRWLOZ64PQQGKD2IYWA22RLT37GJKS2EJXZHT2VLAGWLC5TOB": {
+      "network": "mainnet",
+      "code": "GYEN",
+      "issuer": "GDF6VOEGRWLOZ64PQQGKD2IYWA22RLT37GJKS2EJXZHT2VLAGWLC5TOB",
+      "name": "GYEN",
+      "image": "/tokens/stellar/gyen.png",
+      "source": "https://stablecoin.z.com/.well-known/stellar.toml",
+      "imageSource": "https://stablecoin.z.com/assets/images/token/icon_gyen_300_300.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/GYEN-GDF6VOEGRWLOZ64PQQGKD2IYWA22RLT37GJKS2EJXZHT2VLAGWLC5TOB-1"
+    },
+    "mainnet:classic:USDT0:GATISXX6BZ6NC7IKQBY37CJD4SOZL3CYZJWXEDG6JVIY4WBS6KXJHN6Q": {
+      "network": "mainnet",
+      "code": "USDT0",
+      "issuer": "GATISXX6BZ6NC7IKQBY37CJD4SOZL3CYZJWXEDG6JVIY4WBS6KXJHN6Q",
+      "name": "USDT0",
+      "image": "/tokens/stellar/usdt0.png",
+      "source": "https://usdt0.to/.well-known/stellar.toml",
+      "imageSource": "https://meta.stellar.expert/bcay6fybeqmld4abh4doja4yf77wpz6style6y4btlfpkgbaqioq",
+      "note": "Issuer metadata image cached by Stellar Expert; original URL unavailable.",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/USDT0-GATISXX6BZ6NC7IKQBY37CJD4SOZL3CYZJWXEDG6JVIY4WBS6KXJHN6Q-2"
+    },
+    "mainnet:classic:WXT:GASBLVHS5FOABSDNW5SPPH3QRJYXY5JHA2AOA2QHH2FJLZBRXSG4SWXT": {
+      "network": "mainnet",
+      "code": "WXT",
+      "issuer": "GASBLVHS5FOABSDNW5SPPH3QRJYXY5JHA2AOA2QHH2FJLZBRXSG4SWXT",
+      "name": "Wirex Token",
+      "image": "/tokens/stellar/wxt.png",
+      "source": "https://wxt.wirexapp.com/.well-known/stellar.toml",
+      "imageSource": "https://img.wirexapp.com/image/upload/v1558606019/wirexapp/WXT.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/WXT-GASBLVHS5FOABSDNW5SPPH3QRJYXY5JHA2AOA2QHH2FJLZBRXSG4SWXT-1"
+    },
+    "mainnet:classic:AUDD:GDC7X2MXTYSAKUUGAIQ7J7RPEIM7GXSAIWFYWWH4GLNFECQVJJLB2EEU": {
+      "network": "mainnet",
+      "code": "AUDD",
+      "issuer": "GDC7X2MXTYSAKUUGAIQ7J7RPEIM7GXSAIWFYWWH4GLNFECQVJJLB2EEU",
+      "name": "AUDD",
+      "image": "/tokens/stellar/audd.png",
+      "source": "https://audd.digital/.well-known/stellar.toml",
+      "imageSource": "https://cdn.audd.digital/AUDD-Logo-Blue-512x512px.png",
+      "ecosystemSource": "https://stellar.expert/explorer/public/asset/AUDD-GDC7X2MXTYSAKUUGAIQ7J7RPEIM7GXSAIWFYWWH4GLNFECQVJJLB2EEU-1"
+    },
+    "testnet:classic:USDC:GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5": {
+      "network": "testnet",
+      "code": "USDC",
+      "issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+      "name": "USD Coin",
+      "image": "/tokens/stellar/usdc.svg",
+      "source": "https://www.circle.com/multi-chain-usdc/stellar",
+      "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/usdc.zip",
+      "archiveEntry": "Token Logo/USDC Token.svg"
+    },
+    "testnet:classic:EURC:GB3Q6QDZYTHWT7E5PVS3W7FUT5GVAFC5KSZFFLPU25GO7VTC3NM2ZTVO": {
+      "network": "testnet",
+      "code": "EURC",
+      "issuer": "GB3Q6QDZYTHWT7E5PVS3W7FUT5GVAFC5KSZFFLPU25GO7VTC3NM2ZTVO",
+      "name": "Euro Coin",
+      "image": "/tokens/stellar/eurc.svg",
+      "source": "https://www.circle.com/eurc",
+      "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/eurc.zip",
+      "archiveEntry": "Token Logo/EURC Token.svg"
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "circleTestnetUsdc": {
+    "network": "testnet",
+    "code": "USDC",
+    "issuer": "GBBD47IF6LWK7P7MDEVSCWR7DPUWV3NY3DTQEVFL4NAT4AQH3ZLLFLA5",
+    "name": "USD Coin",
+    "image": "/tokens/stellar/usdc.svg",
+    "source": "https://www.circle.com/multi-chain-usdc/stellar",
+    "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/usdc.zip",
+    "archiveEntry": "Token Logo/USDC Token.svg"
+  },
+  "circleTestnetEurc": {
+    "network": "testnet",
+    "code": "EURC",
+    "issuer": "GB3Q6QDZYTHWT7E5PVS3W7FUT5GVAFC5KSZFFLPU25GO7VTC3NM2ZTVO",
+    "name": "Euro Coin",
+    "image": "/tokens/stellar/eurc.svg",
+    "source": "https://www.circle.com/eurc",
+    "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/eurc.zip",
+    "archiveEntry": "Token Logo/EURC Token.svg"
+  },
+  "mainnetOnly": [
+    {
+      "network": "mainnet",
+      "code": "EURC",
+      "issuer": "GDHU6WRG4IEQXM5NZ4BMPKOXHW76MZM4Y2IEMFDVXBSDP6SJY4ITNPP2",
+      "name": "Euro Coin",
+      "image": "/tokens/stellar/eurc.svg",
+      "source": "https://www.circle.com/eurc",
+      "reason": "This EURC issuer is for Mainnet. Choose Circle’s Testnet EURC instead.",
+      "imageSource": "https://6778953.fs1.hubspotusercontent-na1.net/hubfs/6778953/Pressroom/brandkit/logo-downloads/eurc.zip",
+      "archiveEntry": "Token Logo/EURC Token.svg"
+    },
+    {
+      "network": "mainnet",
+      "code": "AQUA",
+      "issuer": "GBNZILSTVQZ4R7IKQDGHYGY2QXL5QOFJYQMXPKWRRM5PAV7Y4M67AQUA",
+      "name": "Aquarius",
+      "image": "/tokens/stellar/aqua.png",
+      "source": "https://aqua.network/.well-known/stellar.toml",
+      "reason": "This AQUA issuer is for Mainnet and has no supported Testnet market. Choose another Testnet asset."
+    }
+  ]
+}
